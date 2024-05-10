@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don Juan - Barbearia e Cabelereiro</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+  <style>
+    body {
+      background-color: black;
+    }
+    .main-content {
+      position: relative;
+      bottom: 950px;
+    }
+    .wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+    }
+    #sobre {
+      position: relative;
+      top: 630px;
+      right: 900px;
+      font-size: larger;
+    }
+  </style>
+</head>
+<body>
+  <div class="tela-inteira">
+    <div class="wrapper">
+      <video autoplay loop muted class="background-video">
+        <source src="images/videobg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+  </div>
+    <header class="header">
+      <div class="logo-container">
+        <a href="#home" class="logo-container">
+          <img src="images/logo-donjuan.jpeg" alt="Don Juan Barbearia e Cabelereiro Logo" class="logo-img">
+        </a>
+      </div>
+      <nav class="navigation">
+        <a href="#home" title="Home" target="_blank">
+          <span class="material-symbols-outlined">home</span>
+          <span class="nav-label">Home</span>
+        </a>
+        <a href="servicos.html" title="Serviços" target="_blank">
+          <span class="material-symbols-outlined">explore</span>
+          <span class="nav-label">Serviços</span>
+        </a>
+        <a href="contato.html" title="Contato" target="_blank">
+          <span class="material-symbols-outlined">mail</span>
+          <span class="nav-label">Contato</span>
+        </a>
+        <a href="sobre.html" title="Sobre" target="_blank">
+          <span class="material-symbols-outlined">person</span>
+          <span class="nav-label">Sobre</span>
+        </a>
+      </nav>
+    </header>
+    <main class="main-content">
+      <section class="hero">
+        <h1>Bem-vindos ao <span class="don-juan">Don Juan</span></h1>
+        <p>Cuidamos do seu estilo com o máximo profissionalismo e dedicação.</p>
+        <a href="servicos.html">Conheça nossos serviços</a>
+      </section>
+
+      <div id="sobre">
+        <h1>Nossos Serviços</h1>     
+      </div>
+
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>
