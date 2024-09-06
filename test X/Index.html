@@ -6,56 +6,41 @@
   <title>Don Juan - Barbearia e Cabelereiro</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
-  <style>
-    .wrapper {
-      position: relative;
-      overflow: hidden;
-      width: 100vw;
-      height: 100vh;
-    }
-  </style>
 </head>
 <body>
   <div class="wrapper">
-    <video autoplay loop muted class="background-video">
+    <video autoplay loop muted class="background-video" disablePictureInPicture>
       <source src="images/videobg.mp4" type="video/mp4">
+      <source src="images/videobg.webm" type="video/webm"> <!-- Added WebM format -->
       Your browser does not support the video tag.
     </video>
 
-    <header class="header">
+    <header class="header" role="banner">
       <div class="logo-container">
-        <a href="#home" class="logo-container">
+        <a href="#home" class="logo-container" aria-label="Homepage">
           <img src="images/logo-donjuan.jpeg" alt="Don Juan Barbearia e Cabelereiro Logo" class="logo-img">
         </a>
       </div>
-      <nav class="navigation">
-        <a href="#home" title="Home">
-          <span class="material-symbols-outlined">home</span>
-          <span class="nav-label">Home</span>
-        </a>
-        <a href="#services" title="Serviços">
-          <span class="material-symbols-outlined">explore</span>
-          <span class="nav-label">Serviços</span>
-        </a>
-        <a href="#contato" title="Contato">
-          <span class="material-symbols-outlined">mail</span>
-          <span class="nav-label">Contato</span>
-        </a>
-        <a href="#sobre" title="Sobre">
-          <span class="material-symbols-outlined">person</span>
-          <span class="nav-label">Sobre</span>
-        </a>
+      <nav class="navigation fade-in" role="navigation">
+        <a href="#home" title="Home"><span class="nav-label">Home</span></a>
+        <a href="#services" title="Serviços"><span class="nav-label">Serviços</span></a>
+        <a href="#contato" title="Contato"><span class="nav-label">Contato</span></a>
+        <a href="#sobre" title="Sobre"><span class="nav-label">Sobre</span></a>
       </nav>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" role="main">
       <section class="hero">
         <h1>Bem-vindos ao <span class="don-juan">Don Juan</span></h1>
         <p>Cuidamos do seu estilo com o máximo profissionalismo e dedicação.</p>
         <a href="#">Conheça nossos serviços</a>
       </section>
+    </main>
 
-    <script src="script.js"></script>
+    <footer class="footer">
+      <!-- Footer content -->
+    </footer>
   </div>
+  <script src="script.js" defer></script>
 </body>
 </html>

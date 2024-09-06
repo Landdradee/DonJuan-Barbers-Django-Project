@@ -1,230 +1,236 @@
 /* Base styles */
 body {
-    font-family: Arial, sans-serif; /* Include sans-serif for fallback */
-    color: #fff;
-    background-color: #121212;
-    margin: 0;
-    padding: 0;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
- 
-  .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Maintain aspect ratio and cover container */
-    z-index: -1; /* Place video behind content */
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+}
 
-  }
+/* Box-sizing reset */
+* {
+  box-sizing: border-box;
+}
 
-  /* Header */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: rgba(0, 0, 0, 0.7); /* Updated default background */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+/* Sticky header effect */
+.header.sticky {
+  background-color: rgba(0, 0, 0, 0.9); /* Darker background on scroll */
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: inherit;
+  padding: 12px 16px;
+  position: relative;
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Main Content */
+.main-content {
+  padding: 80px 24px;
+  min-height: calc(100vh - 64px);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in both;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in both;
+}
+
+h1 .don-juan {
+  font-family: 'Kolker Brush', cursive;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.hero a {
+  background-color: rgb(255, 255, 167);
+  color: #000;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+}
+
+.hero a:hover {
+  background-color: #ffff00;
+}
+
+/* Services Section */
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 24px;
+}
+
+.services h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.services li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 24px;
-    background-color: transparent;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
+    padding: 8px 16px;
   }
-  
-  .header.sticky {
-    top: 0; /* Maintain sticky position on scroll */
+
+  h1 {
+    font-size: 20px;
   }
-  
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-img {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.4s;
-  }
-  
-  .logo-img:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Navigation */
-  .navigation {
-    display: flex;
-    list-style: none;
-    margin: 0; /* Remove default margin */
-    background-color: transparent; /* Optional: Set transparent background for navigation */
-  }
-  
-  .navigation a {
-    text-decoration: none;
-    color: inherit; /* Inherit from body color */
-    padding: 12px 16px; /* Consistent padding for navigation items */
-    transition: all 0.2s; /* Apply transition to all navigation styles */
-  }
-  
-  .navigation a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
+
   .navigation a span {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    gap: 4px;
   }
-  
+
   .navigation a .material-symbols-outlined {
-    font-size: 24px;
-    transition: all 0.2s;
-    outline: none;
+    font-size: 20px;
   }
-  
-  /* Main Content */
+
   .main-content {
     padding: 80px 24px;
-    min-height: calc(100vh - 64px); /* Ensures main content fills viewport height */
-    opacity: 0; /* Initial opacity for hidden content */
-    animation: fadeIn 1s ease-in both; /* Apply animation */
-    text-align: center; /* Center content horizontally */
-    display: flex; /* Enable flexbox for vertical centering */
-    justify-content: center; /* Vertically center content within .main-content */
-    align-items: center; /* Vertically align content within the flexbox */
-    min-height: 100vh; /* Ensure content fills viewport height (optional) */
-
-}
-  
-h1 .don-juan { /* Target "Don Juan" text within h1 */
-    font-family: 'Kolker Brush', cursive; /* Use Kolker Brush font */
-}
-
-  @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px); /* Start content off-screen (translate up) */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* Animate to original position */
-    }
-}
-
-  /* Hero Section */
-  .hero {
-    text-align: center;
-    margin-bottom: 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-height: calc(100vh - 64px);
+    animation: fadeInDown 1s ease-in-out both;
   }
   
+  @keyframes fadeInDown {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }  
+
   .hero h1 {
-    font-size: 32px;
-    margin-bottom: 16px;
+    font-size: 28px;
   }
-  
+
   .hero p {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 24px;
-  }
-  
-  .hero a {
-    background-color: #e74c3c;
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 4px;
     font-size: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
   }
-  
-  .hero a:hover {
-    background-color: #c0392b;
-  }
-  
-  /* Services Section */
+
   .services {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 24px; /* Add margin for better spacing */
+    flex-direction: column;
   }
-  
-  .services h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-  
-  .services ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
+
   .services li {
-    font-size: 16px;
-    margin-bottom: 8px;
+    line-height: 1.5;
   }
-  
-  /* Media Queries (Responsive Design) */
-  @media (max-width: 768px) {
-    .header {
-      padding: 8px 16px;
-    }
-  
-    h1 {
-      font-size: 20px;
-    }
-  
-    .navigation a span {
-      gap: 4px;
-    }
-  
-    .navigation a .material-symbols-outlined {
-      font-size: 20px;
-    }
-  
-    .main-content {
-        padding: 80px 24px;
-        min-height: calc(100vh - 64px); /* Ensures main content fills viewport height */
-        opacity: 0; /* Initial opacity for hidden content */
-        animation: fadeInDown 1s ease-in-out both; /* Apply animation */
-      }
-      
-      @keyframes fadeInDown {
-        0% {
-          transform: translateY(-100px); /* Start content off-screen */
-          opacity: 0; /* Start with zero opacity */
-        }
-        100% {
-          transform: translateY(0); /* Animate to original position */
-          opacity: 1; /* Animate to full opacity */
-        }
-      }  
-    .hero h1 {
-      font-size: 28px;
-    }
-  
-    .hero p {
-      font-size: 16px;
-    }
-  
-    .services {
-      flex-direction: column;
-    }
-  
-    .services li {
-      line-height: 1.5; /* Increase line-height for better readability on smaller screens */
-    }
-  }
-    
+}
