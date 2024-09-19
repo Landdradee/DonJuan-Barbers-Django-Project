@@ -1,0 +1,6 @@
+A ideia do projeto se baseia em um "iFood" de cabelereiros, onde vamos desde entender qual a necessidade do cliente, até mesmo dar sugestões de quais tipos de corte de cabelo se encaixam melhor em tal pessoa.
+O projeto será auxiliado por uma Inteligência Artificial, tanto na filtração de cabelereiro em melhores notas (coisa básica do marketing), quanto em conversar e convencer o potencial cliente a usar nosso serviço por isso e aquilo, que apenas nós o oferecemos.
+
+Caso haja dúvida pergunte a algum dos Lucas.
+
+Lemebre-se que este trabalho pode definir seu futuro, valeu!
