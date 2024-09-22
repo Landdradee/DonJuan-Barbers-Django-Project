@@ -17,14 +17,3 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateHeader);
   updateHeader();
 });
-
-const switchElement = document.querySelector('.switch');
-const checkbox = switchElement.querySelector('.input');
-
-checkbox.addEventListener('change', () => {
-  if (checkbox.checked) {
-    switchElement.style.backgroundColor = 'white';
-  } else {
-    switchElement.style.backgroundColor = 'black';
-  }
-});
