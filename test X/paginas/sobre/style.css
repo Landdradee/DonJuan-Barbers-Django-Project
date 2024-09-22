@@ -86,3 +86,10 @@ body {
       opacity: 1;
     }
   }
+  #sobre {
+    text-align: center;
+  }
+  p {
+    text-align: left;
+    margin: 0px 7%;
+  }
