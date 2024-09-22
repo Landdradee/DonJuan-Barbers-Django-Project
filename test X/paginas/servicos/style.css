@@ -4,6 +4,7 @@ body {
   background-color: #121212;
   margin: 0;
   padding: 0;
+  height: 1000px;
 }
 
 /* Box-sizing reset */
@@ -124,4 +125,19 @@ body {
   .informacoesProduto > * {
     margin-top: 0;
     font: normal 15pt arial;
+  }
+  .nomeProduto {
+    margin-bottom: 3px;
+    margin-top: 0px;
+  }
+  .avaliacaoProduto {
+    margin-bottom: 40px;
+  }
+  .sabermaisProduto {
+    margin-bottom: 0;
+    margin-left: 55px;
+    font: 300 12pt monospace;
+  }
+  .estrelas {
+    font-size: 12pt;
   }
