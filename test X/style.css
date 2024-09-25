@@ -12,14 +12,25 @@ body {
   box-sizing: border-box;
 }
 
+.wrapper {
+  position: relative; /* Ensure that child elements are positioned relative to this */
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1; /* Set z-index higher than video */
+}
+
 .background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute; /* Make the video position absolute */
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Cover the entire wrapper */
+  height: 100%; /* Cover the entire wrapper */
+  -o-filter: blur(15px);
+  filter: blur(15px);
   object-fit: cover;
-  z-index: -1;
+  transform: scale(1.04);
+  z-index: 0; /* Ensure video is behind all other content */
 }
 
 /* Header */
@@ -32,7 +43,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 10; /* Ensure header is above everything */
   transition: background-color 0.3s ease;
 }
 
@@ -106,10 +117,6 @@ body {
   animation: fadeIn 1s ease-in both;
 }
 
-h1 .don-juan {
-  font-family: 'Kolker Brush', cursive;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -143,8 +150,8 @@ h1 .don-juan {
 }
 
 .hero a {
-  background-color: rgb(255, 255, 167);
-  color: #000;
+  background-color: none;
+  color: gold;
   padding: 12px 24px;
   border: none;
   border-radius: 4px;
@@ -155,7 +162,7 @@ h1 .don-juan {
 }
 
 .hero a:hover {
-  background-color: #ffff00;
+  background-color: none;
 }
 
 /* Services Section */
@@ -232,4 +239,34 @@ h1 .don-juan {
   .services li {
     line-height: 1.5;
   }
+}
+
+.typing-demo {
+  width: 65ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+.great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+  color: gold;
 }
