@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- Define a codificação de caracteres do documento como UTF-8 -->
   <meta charset="UTF-8">
+  <!-- Define a configuração de viewport para responsividade em dispositivos móveis -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título da página exibido na aba do navegador -->
   <title>Don Juan - Barbearia e Cabelereiro</title>
+  <!-- Link para o arquivo de estilo CSS -->
   <link rel="stylesheet" href="style.css">
+  <!-- Pré-conexão para otimizar o carregamento de fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Link para a fonte Great Vibes do Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="wrapper">
+    <!-- Vídeo de fundo que toca automaticamente, em loop e sem som -->
     <video autoplay loop muted class="background-video" disablePictureInPicture>
       <source src="images/videobg.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+      Seu navegador não suporta a tag de vídeo.
     </video>
 
     <header class="header" role="banner">
       <div class="logo-container">
+        <!-- Logo da empresa que redireciona para a homepage -->
         <a href="/test X/index.html" class="logo-container" aria-label="Homepage">
           <img src="images/donjuan.png" alt="Don Juan Barbearia e Cabelereiro Logo" class="logo-img">
         </a>
       </div>
       <nav class="navigation fade-in" role="navigation">
+        <!-- Links de navegação -->
         <a href="/test X/index.html" title="Home"><span class="nav-label">Home</span></a>
         <a href="/test X/paginas/servicos/servicos.html" title="Serviços"><span class="nav-label">Serviços</span></a>
         <a href="/test X/paginas/contato/contato.html" title="Contato"><span class="nav-label">Contato</span></a>
@@ -32,16 +41,20 @@
 
     <main class="main-content" role="main">
       <section class="hero">
+        <!-- Título principal da seção -->
         <h1>Bem-vindos ao <span class="great-vibes-regular">Don Juan</span></h1>
+        <!-- Descrição breve -->
         <p class="typing-demo">Cuidamos do seu estilo com o máximo profissionalismo e dedicação.</p>
-        <a href="/test X/paginas/servicos/servicos.html" target="_blank">Conheça nossos serviços</a>
+        <!-- Link para conhecer os serviços oferecidos -->
+        <a href="/test X/paginas/servicos/servicos.html">Conheça nossos serviços</a>
       </section>
     </main>
 
     <footer class="footer">
-      <!-- Footer content -->
+      <!-- Conteúdo do rodapé -->
     </footer>
   </div>
+  <!-- Script JavaScript com carregamento deferido -->
   <script src="script.js" defer></script>
 </body>
 </html>
