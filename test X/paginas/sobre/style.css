@@ -1,92 +1,160 @@
 body {
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background-color: #121212;
-  margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif; /* Fonte utilizada no corpo da página */
+  color: #fff; /* Cor do texto */
+  background-color: #121212; /* Cor de fundo */
+  margin: 0; /* Remove a margem padrão */
+  padding: 0; /* Remove o preenchimento padrão */
+  height: 1000px; /* Altura do corpo */
 }
 
-/* Box-sizing reset */
+/* Reset de box-sizing */
+* {
+  box-sizing: border-box; /* Inclui bordas e preenchimentos na largura e altura totais */
+}
+
+.header {
+  display: flex; /* Usa flexbox para layout */
+  justify-content: space-between; /* Distribui o espaço entre logo e navegação */
+  padding: 16px 24px; /* Preenchimento interno da header */
+  background-color: none; /* Atualização do fundo (pode ser ajustado) */
+  position: fixed; /* Fixa a header no topo */
+  top: 0; /* Posiciona a header no topo da página */
+  width: 100%; /* Largura total da header */
+  z-index: 10; /* Coloca a header acima de outros elementos */
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+  height: auto; /* Altura automática baseada no conteúdo */
+}
+
+/* Efeito de header fixa */
+.header.sticky {
+  background-color: rgba(0, 0, 0, 0.9); /* Fundo mais escuro ao rolar */
+}
+
+/* Logo */
+.logo-container {
+  display: flex; /* Usa flexbox para o contêiner do logo */
+  align-items: center; /* Alinha o logo verticalmente ao centro */
+}
+
+.logo-img {
+  width: auto; /* Largura da imagem do logo */
+  height: auto; /* Altura da imagem do logo */
+  max-width: 170px; /* Opcional: limita a largura máxima */
+  max-height: 170px; /* Opcional: limita a altura máxima */
+  object-fit: cover; /* Cobre o espaço mantendo a proporção */
+  transition: transform 0.4s; /* Transição suave para o efeito de hover */
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.logo-img:hover {
+  transform: scale(1.1); /* Aumenta o logo ao passar o mouse */
+}
+
+/* Navegação */
+.navigation {
+  display: flex; /* Usa flexbox para a navegação */
+  list-style: none; /* Remove os marcadores da lista */
+  margin-top: -27%; /* Remove a margem padrão */
+  margin-bottom: 0;
+  margin-left: auto; /* Empurra a navegação para a direita */
+  padding: 0; /* Remove o preenchimento padrão */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  height: 65px; /* Altura da navegação */
+}
+
+.navigation a {
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: inherit; /* Usa a cor do elemento pai */
+  padding: 12px 16px; /* Preenchimento interno dos links */
+  position: relative; /* Para posicionamento do pseudo-elemento */
+}
+
+.navigation a::after {
+  content: ''; /* Cria um pseudo-elemento após o link */
+  position: absolute; /* Posiciona o pseudo-elemento */
+  bottom: 0; /* Alinha ao fundo do link */
+  left: 0; /* Alinha à esquerda do link */
+  width: 100%; /* Largura total do pseudo-elemento */
+  height: 2px; /* Altura do sublinhado */
+  background-color: rgb(255, 255, 255); /* Cor do sublinhado */
+  transform: scaleX(0); /* Inicia com escala 0 */
+  transform-origin: left; /* Origem da transformação à esquerda */
+  transition: transform 0.3s ease; /* Transição suave para a escala */
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1); /* Aumenta a escala do sublinhado ao passar o mouse */
+}
+
+#cabecalho {
+  width: 100%; /* Largura total do cabeçalho */
+  height: 250px; /* Altura do cabeçalho */
+  display: flex; /* Usa flexbox para o cabeçalho */
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in both; /* Animação de entrada suave */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* Opacidade inicial 0 */
+  }
+  100% {
+    opacity: 1; /* Opacidade final 1 */
+  }
+}
+
+/* Reset de estilo global */
+* {
+  border: 0; /* Remove bordas padrão */
+  box-sizing: border-box; /* Inclui bordas e preenchimentos na largura e altura totais */
+  margin: 0; /* Remove a margem padrão */
+  padding: 0; /* Remove o preenchimento padrão */
+}
+
+@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+  --font-sans: "Rubik", sans-serif;
+  --font-serif: "Cardo", serif;
+}
+
 * {
   box-sizing: border-box;
 }
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 24px;
-    background-color: none; /* Updated default background */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-}
-  
-  /* Sticky header effect */
-.header.sticky {
-    background-color: rgba(0, 0, 0, 0.9); /* Darker background on scroll */
-}
-  
-  /* Logo */
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo-img {
-    width: 200px;
-    height: 140px;
-    object-fit: cover;
-    transition: transform 0.4s;
-  }
-  
-  .logo-img:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Navigation */
-  .navigation {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    margin-bottom: 10px;
-    padding: 0;
-    align-items: center;
-  }
-  
-  .navigation a {
-    text-decoration: none;
-    color: inherit;
-    padding: 12px 16px;
-    position: relative;
-  }
-  
-  .navigation a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: rgb(255, 255, 255);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
 
-  .navigation a:hover::after {
-    transform: scaleX(1);
-  }
+html, body {
+  height: 100%;
+}
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+body {
+  display: grid;
+  place-items: center;
+}
+
+.page-content {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 1rem;
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+}
+@media (min-width: 600px) {
+  .page-content {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+@media (min-width: 800px) {
+  .page-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
   #sobre {
     text-align: center;
   }
