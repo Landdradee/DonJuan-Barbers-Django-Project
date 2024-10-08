@@ -1,63 +1,64 @@
+/* Estilos base */
 body {
-  font-family: Arial, sans-serif; /* Fonte utilizada no corpo da página */
-  color: #fff; /* Cor do texto */
-  background-color: #121212; /* Cor de fundo */
-  margin: 0; /* Remove a margem padrão */
-  padding: 0; /* Remove o preenchimento padrão */
-  height: 1000px; /* Altura do corpo */
+  font-family: Arial, sans-serif; /* Fonte do corpo */
+  color: #ffffff; /* Cor do texto */
+  background-color: #000000ed; /* Cor de fundo mais escura */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove preenchimento padrão */
 }
 
-/* Reset de box-sizing */
+/* Redefinição do box-sizing */
 * {
-  box-sizing: border-box; /* Inclui bordas e preenchimentos na largura e altura totais */
+  box-sizing: border-box; /* Inclui padding e bordas no tamanho total dos elementos */
 }
 
+.wrapper {
+  position: relative; /* Garante que os elementos filhos sejam posicionados em relação a este */
+  width: 100vw; /* Largura total da viewport */
+  height: 100vh; /* Altura total da viewport */
+  overflow: hidden; /* Oculta o conteúdo que excede as dimensões */
+  z-index: 1; /* Define z-index maior que o vídeo */
+}
+
+/* Estilo do cabeçalho */
 .header {
   display: flex; /* Usa flexbox para layout */
   justify-content: space-between; /* Distribui o espaço entre logo e navegação */
   padding: 16px 24px; /* Preenchimento interno da header */
-  background-color: none; /* Atualização do fundo (pode ser ajustado) */
   position: fixed; /* Fixa a header no topo */
   top: 0; /* Posiciona a header no topo da página */
   width: 100%; /* Largura total da header */
   z-index: 10; /* Coloca a header acima de outros elementos */
   transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
-  height: auto; /* Altura automática baseada no conteúdo */
 }
 
-/* Efeito de header fixa */
+/* Efeito de cabeçalho fixo */
 .header.sticky {
   background-color: rgba(0, 0, 0, 0.9); /* Fundo mais escuro ao rolar */
 }
 
-/* Logo */
+/* Estilo do logo */
 .logo-container {
-  display: flex; /* Usa flexbox para o contêiner do logo */
-  align-items: center; /* Alinha o logo verticalmente ao centro */
+  display: flex; /* Usando flexbox para layout */
+  align-items: center; /* Alinha itens verticalmente ao centro */
 }
 
 .logo-img {
-  width: auto; /* Largura da imagem do logo */
-  height: auto; /* Altura da imagem do logo */
-  max-width: 170px; /* Opcional: limita a largura máxima */
-  max-height: 170px; /* Opcional: limita a altura máxima */
-  object-fit: cover; /* Cobre o espaço mantendo a proporção */
-  transition: transform 0.4s; /* Transição suave para o efeito de hover */
-  top: 0;
-  left: 0;
-  position: absolute;
+  width: 200px; /* Largura do logo */
+  height: 140px; /* Altura do logo */
+  object-fit: cover; /* Cobre a área mantendo a proporção */
+  transition: transform 0.4s; /* Transição suave para transformações */
 }
 
 .logo-img:hover {
   transform: scale(1.1); /* Aumenta o logo ao passar o mouse */
 }
 
-/* Navegação */
+/* Estilo da navegação */
 .navigation {
   display: flex; /* Usa flexbox para a navegação */
   list-style: none; /* Remove os marcadores da lista */
-  margin-top: -27%; /* Remove a margem padrão */
-  margin-bottom: 0;
+  margin: 0; /* Remove a margem padrão */
   margin-left: auto; /* Empurra a navegação para a direita */
   padding: 0; /* Remove o preenchimento padrão */
   align-items: center; /* Alinha os itens verticalmente ao centro */
@@ -65,100 +66,212 @@ body {
 }
 
 .navigation a {
-  text-decoration: none; /* Remove o sublinhado dos links */
-  color: inherit; /* Usa a cor do elemento pai */
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: inherit; /* Mantém a cor do texto pai */
   padding: 12px 16px; /* Preenchimento interno dos links */
-  position: relative; /* Para posicionamento do pseudo-elemento */
+  position: relative; /* Posicionamento relativo para pseudo-elementos */
 }
 
 .navigation a::after {
-  content: ''; /* Cria um pseudo-elemento após o link */
-  position: absolute; /* Posiciona o pseudo-elemento */
-  bottom: 0; /* Alinha ao fundo do link */
-  left: 0; /* Alinha à esquerda do link */
-  width: 100%; /* Largura total do pseudo-elemento */
-  height: 2px; /* Altura do sublinhado */
-  background-color: rgb(255, 255, 255); /* Cor do sublinhado */
-  transform: scaleX(0); /* Inicia com escala 0 */
+  content: ''; /* Pseudo-elemento vazio para efeito de underline */
+  position: absolute; /* Posiciona o underline de forma absoluta */
+  bottom: 0; /* Alinha na parte inferior do link */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Largura total do underline */
+  height: 2px; /* Altura do underline */
+  background-color: rgb(255, 255, 255); /* Cor do underline */
+  transform: scaleX(0); /* Inicia o underline invisível */
   transform-origin: left; /* Origem da transformação à esquerda */
-  transition: transform 0.3s ease; /* Transição suave para a escala */
+  transition: transform 0.3s ease; /* Transição suave para a transformação */
 }
 
 .navigation a:hover::after {
-  transform: scaleX(1); /* Aumenta a escala do sublinhado ao passar o mouse */
-}
-
-#cabecalho {
-  width: 100%; /* Largura total do cabeçalho */
-  height: 250px; /* Altura do cabeçalho */
-  display: flex; /* Usa flexbox para o cabeçalho */
+  transform: scaleX(1); /* Exibe o underline ao passar o mouse */
 }
 
 .fade-in {
-  animation: fadeIn 1s ease-in both; /* Animação de entrada suave */
+  animation: fadeIn 1s ease-in both; /* Animação de entrada */
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0; /* Opacidade inicial 0 */
+  from {
+    opacity: 0; /* Inicia invisível */
+    transform: translateY(-20px); /* Move para cima */
   }
-  100% {
-    opacity: 1; /* Opacidade final 1 */
+  to {
+    opacity: 1; /* Termina visível */
+    transform: translateY(0); /* Retorna à posição original */
   }
 }
 
-/* Reset de estilo global */
-* {
-  border: 0; /* Remove bordas padrão */
-  box-sizing: border-box; /* Inclui bordas e preenchimentos na largura e altura totais */
-  margin: 0; /* Remove a margem padrão */
-  padding: 0; /* Remove o preenchimento padrão */
-}
-
-@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
-:root {
-  --d: 700ms;
-  --e: cubic-bezier(0.19, 1, 0.22, 1);
-  --font-sans: "Rubik", sans-serif;
-  --font-serif: "Cardo", serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html, body {
+/* Overlay styles */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 2; /* Ensures overlay is on top of the video */
 }
 
-body {
-  display: grid;
-  place-items: center;
+.about-section{
+	position:relative;
+	padding:120px 0px;
 }
 
-.page-content {
-  display: grid;
-  grid-gap: 1rem;
-  padding: 1rem;
-  max-width: 1024px;
-  margin: 0 auto;
-  font-family: var(--font-sans);
-}
-@media (min-width: 600px) {
-  .page-content {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 800px) {
-  .page-content {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.about-section .content-column{
+	position:relative;
+	margin-bottom:40px;
 }
 
-  #sobre {
-    text-align: center;
-  }
-  p {
-    text-align: left;
-    margin: 0px 7%;
-  }
+.about-section .content-column .inner-column{
+	position:relative;
+	padding-top:50px;
+	padding-right:100px;
+}
+
+.about-section .content-column .text{
+	position:relative;
+	color:#777777;
+	font-size:15px;
+	line-height:2em;
+	margin-bottom:40px;
+}
+
+.about-section .content-column {
+	position:relative;
+	color:#ffffff78;
+	font-weight:700;
+	margin-bottom:50px;
+}
+
+.about-section .image-column{
+	position:relative;
+	margin-bottom:50px;
+}
+
+.about-section .image-column .inner-column{
+	position:relative;
+	padding:40px 40px 0px 0px;
+	margin-left:50px;
+}
+
+.about-section .image-column .inner-column:after{
+	position:absolute;
+	content:'';
+	right:0px;
+	top:0px;
+	left:40px;
+	bottom:100px;
+	z-index:-1;
+	border:2px solid #d7a449;
+}
+
+.about-section .image-column .inner-column .image{
+	position:relative;
+}
+
+.about-section .image-column .inner-column .image:before{
+	position:absolute;
+	content:'';
+	left:-50px;
+	bottom:-50px;
+	width:299px;
+	height:299px;
+	background:url(img/pattern-2.png) no-repeat;
+}
+
+.about-section .image-column .inner-column .image img{
+	position:relative;
+	width:100%;
+	display:block;
+}
+
+.about-section .image-column .inner-column .image .overlay-box{
+	position:absolute;
+	left:40px;
+	bottom:48px;
+}
+
+.about-section .image-column .inner-column .image .overlay-box .year-box{
+	position:relative;
+	color:white;
+	font-size:24px;
+	font-weight:700;
+	line-height:1.4em;
+	padding-left:125px;
+}
+
+.about-section .image-column .inner-column .image .overlay-box .year-box .number{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:110px;
+	height:110px;
+	color:#d7a449;
+	font-size:68px;
+	font-weight:700;
+	line-height:105px;
+	text-align:center;
+	background-color:#ffffff;
+	border:1px solid #000000;
+}
+.about-section .btn-style-three:before {
+    position: absolute;
+    content: '';
+    left: 10px;
+    top: 10px;
+    z-index: -1;
+    right: -10px;
+    bottom: -10px;
+    background: url(https://i.ibb.co/DKn55Qz/pattern-1.jpg) repeat;
+}
+.about-section .btn-style-three:hover {
+    color: #ffffff;
+    background: #d7a449;
+}
+.about-section .btn-style-three {
+    position: relative;
+    line-height: 24px;
+    color: #252525;
+    font-size: 15px;
+    font-weight: 700;
+    background: none;
+    display: inline-block;
+    padding: 11px 40px;
+    background-color: #ffffff;
+    text-transform: capitalize;
+    border: 2px solid #d7a449;
+    font-family: 'Arimo', sans-serif;
+}
+.sec-title2{
+	color:#fff;
+}
+.sec-title {
+    position: relative;
+    padding-bottom: 40px;
+}
+.sec-title .title {
+    position: relative;
+    color: #d7a449;
+    font-size: 18px;
+    font-weight: 700;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    display: inline-block;
+    text-transform: capitalize;
+}
+.sec-title .title:before {
+    position: absolute;
+    content: '';
+    right: 0px;
+    bottom: 7px;
+    width: 40px;
+    height: 1px;
+    background-color: #bbbbbb;
+}
+
+h2 {
+  color: #ffffff;
+}
