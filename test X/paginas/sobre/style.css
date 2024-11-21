@@ -117,18 +117,17 @@ body {
 
 .about-section{
 	position:relative;
-	padding:120px 0px;
+	padding:10px 0px;
 }
 
 .about-section .content-column{
 	position:relative;
-	margin-bottom:40px;
+	margin-bottom:100px;
 }
 
 .about-section .content-column .inner-column{
 	position:relative;
-	padding-top:50px;
-	padding-right:100px;
+	padding-top:10px;
 }
 
 .about-section .content-column .text{
@@ -274,4 +273,10 @@ body {
 
 h2 {
   color: #ffffff;
+}
+
+@media (max-width: 760px) {
+  .logo-img {
+    display: none;
+  }
 }

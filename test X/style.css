@@ -227,7 +227,7 @@ body {
   }  
 
   .hero h1 {
-    font-size: 28px; /* Reduz o tamanho do título em telas menores */
+    font-size: 20px; /* Reduz o tamanho do título em telas menores */
   }
 
   .hero p {
@@ -254,6 +254,12 @@ body {
   font-size: 2em; /* Tamanho da fonte */
 }
 
+@media (max-width: 768px) {
+  .typing-demo {
+    display: none;
+  }
+}
+
 @keyframes typing {
   from {
     width: 0; /* Inicia com largura 0 */
@@ -273,4 +279,16 @@ body {
   font-style: normal; /* Estilo normal */
   font-size: 80px; /* Tamanho da fonte */
   color: gold; /* Cor da fonte */
+}
+
+@media (max-width: 768px) {
+  .great-vibes-regular {
+    font-size: 40px; /* Reduz o tamanho da fonte em telas menores */
+  }
+  #conheca {
+    font-size: 20px;
+  }
+  .logo-img {
+    display: none;
+  }
 }

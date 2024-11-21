@@ -84,13 +84,13 @@ body {
 }
 
 .navigation a:hover::after {
-  transform: scaleX(1); /* Aumenta a escala do sublinhado ao passar o mouse */
+  transform: scaleX(1);
 }
 
 #cabecalho {
   width: 100%; /* Largura total do cabeçalho */
   height: 250px; /* Altura do cabeçalho */
-  display: flex; /* Usa flexbox para o cabeçalho */
+  display: flex;
 }
 
 .fade-in {
@@ -300,3 +300,12 @@ body {
     transition-duration: 0s;
   }
 }
+@media (max-width: 768px) {
+  .card {
+      width: 90%; /* Ajusta a largura dos cards para 90% da tela */
+      margin: 10px auto; /* Centraliza os cards com margem automática */
+  }
+  .logo-img {
+    display: none;
+  }
+  }
