@@ -1,1 +1,0 @@
-Gabriel coloca o icon do cabelereiro na pasta "images"

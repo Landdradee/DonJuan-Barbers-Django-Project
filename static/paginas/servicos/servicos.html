@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don Juan - Serviços</title>
+    <link rel="stylesheet" href="{% static 'css/servicos.css' %}">
+</head>
+<body>
+    
+    <section class="fade-in" id="cabecalho">
+      <header class="header" role="banner">
+        <div class="logo-container">
+          <a href="{% url 'home' %}" class="logo-container" aria-label="Homepage">
+            <img src="{% static 'images/donjuan.png' %}" alt="Don Juan Barbearia e Cabelereiro Logo" class="logo-img">
+          </a>
+        </div>
+        <nav class="navigation fade-in" role="navigation">
+          <a href="{% url 'home' %}" title="Home"><span class="nav-label">Home</span></a>
+          <a href="{% url 'servicos' %}" title="Serviços"><span class="nav-label">Serviços</span></a>
+          <a href="{% url 'contato' %}" title="Contato"><span class="nav-label">Contato</span></a>
+          <a href="{% url 'sobre' %}" title="Sobre"><span class="nav-label">Sobre</span></a>
+  
+          {% if user.is_authenticated %}
+            <a href="{% url 'perfil' %}" title="Profile"><span class="nav-label">{{ user.username }}</span></a>
+          {% else %}
+            <a href="{% url 'account_login' %}" title="Login"><span class="nav-label">Login</span></a>
+          {% endif %}
+        </nav>
+      </header>
+    </section>
+
+    <main class="page-content">
+      <div class="card">
+        <div class="content">
+          <h2 class="title">Se estilize em casa</h2>
+          <p class="copy">Oferecemos serviço em casa, com o barbeiro indo até você para um corte, no conforto do seu lar.</p>
+          <button class="btn">Agende já!</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <h2 class="title">Atendimento no Estabelecimento</h2>
+          <p class="copy">Visite um dos nossos estabelecimentos e tenha uma experiência com cortes, num ambiente criado para o seu e bem-estar.</p>
+          <button class="btn">Agende já!</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <h2 class="title">Parcerias</h2>
+          <p class="copy">Permita-nos aumentar seu lucro, fortalecendo seu público, e dando um gás no seu negócio!</p>
+          <button class="btn">Cadastre-se</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <h2 class="title">Se torne um</h2>
+          <p class="copy">Empresas parceiras podem estar procurando por novos talentos, veja se você se encaixa!</p>
+          <button class="btn">Cadastre-se</button>
+        </div>
+      </div>
+    </main>
+    <script src="{% static 'js/servicos.js' %}"></script>
+</body>
+</html>

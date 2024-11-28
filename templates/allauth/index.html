@@ -1,0 +1,55 @@
+{% load static %}
+{% load allauth account %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don Juan - Barbearia e Cabelereiro</title>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <video autoplay loop muted class="background-video" disablePictureInPicture>
+      <source src="{% static 'images/videobg.mp4' %}" type="video/mp4">
+      Seu navegador não suporta a tag de vídeo.
+    </video>
+
+    <header class="header" role="banner">
+      <div class="logo-container">
+        <a href="{% url 'home' %}" class="logo-container" aria-label="Homepage">
+          <img src="{% static 'images/donjuan.png' %}" alt="Don Juan Barbearia e Cabelereiro Logo" class="logo-img">
+        </a>
+      </div>
+      <nav class="navigation fade-in" role="navigation">
+        <a href="{% url 'home' %}" title="Home"><span class="nav-label">Home</span></a>
+        <a href="{% url 'servicos' %}" title="Serviços"><span class="nav-label">Serviços</span></a>
+        <a href="{% url 'contato' %}" title="Contato"><span class="nav-label">Contato</span></a>
+        <a href="{% url 'sobre' %}" title="Sobre"><span class="nav-label">Sobre</span></a>
+
+        {% if user.is_authenticated %}
+          <a href="{% url 'perfil' %}" title="Profile"><span class="nav-label">{{ user.username }}</span></a>
+        {% else %}
+          <a href="{% url 'account_login' %}" title="Login"><span class="nav-label">Login</span></a>
+        {% endif %}
+      </nav>
+    </header>
+
+    <main class="main-content" role="main">
+      <section class="hero">
+        <h1>Bem-vindos ao <span class="great-vibes-regular">Don Juan</span></h1>
+        <p class="typing-demo">Cuidamos do seu estilo com o máximo profissionalismo e dedicação.</p>
+        <a href="{% url 'servicos' %}" id="conheca">Conheça nossos serviços</a>
+      </section>
+    </main>
+
+    <footer class="footer">
+    </footer>
+  </div>
+
+  <script src="{% static 'css/script.js' %}" defer></script>
+</body>
+</html>
