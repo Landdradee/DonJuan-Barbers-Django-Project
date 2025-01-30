@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from DonJuanDjango.views import home, perfil, servicos, contato, sobre
+from django.views.generic.base import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -25,4 +26,5 @@ urlpatterns = [
     path('servicos/', servicos, name='servicos'),
     path('contato/', contato, name='contato'),
     path('sobre/', sobre, name='sobre'),
+    path('', RedirectView.as_view(url='/home/', permanent=True)),
 ]
