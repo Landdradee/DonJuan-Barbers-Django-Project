@@ -9,27 +9,18 @@ body {
 
 /* Redefinição do box-sizing */
 * {
-  box-sizing: border-box; /* Inclui padding e bordas no tamanho total dos elementos */
-}
-
-.wrapper {
-  position: relative; /* Garante que os elementos filhos sejam posicionados em relação a este */
-  width: 100vw; /* Largura total da viewport */
-  height: 100vh; /* Altura total da viewport */
-  overflow: hidden; /* Oculta o conteúdo que excede as dimensões */
-  z-index: 1; /* Define z-index maior que o vídeo */
+  box-sizing: border-box;
 }
 
 /* Estilo do cabeçalho */
 .header {
-  display: flex; /* Usa flexbox para layout */
-  justify-content: space-between; /* Distribui o espaço entre logo e navegação */
-  padding: 16px 24px; /* Preenchimento interno da header */
-  position: fixed; /* Fixa a header no topo */
-  top: 0; /* Posiciona a header no topo da página */
-  width: 100%; /* Largura total da header */
-  z-index: 10; /* Coloca a header acima de outros elementos */
-  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
 }
 
 /* Efeito de cabeçalho fixo */
@@ -44,8 +35,8 @@ body {
 }
 
 .logo-img {
-  width: 200px; /* Largura do logo */
-  height: 140px; /* Altura do logo */
+  width: 17vh; /* Largura do logo */
+  height: 11vh; /* Altura do logo */
   object-fit: cover; /* Cobre a área mantendo a proporção */
   transition: transform 0.4s; /* Transição suave para transformações */
 }
@@ -56,20 +47,22 @@ body {
 
 /* Estilo da navegação */
 .navigation {
-  display: flex; /* Usa flexbox para a navegação */
-  list-style: none; /* Remove os marcadores da lista */
-  margin: 0; /* Remove a margem padrão */
-  margin-left: auto; /* Empurra a navegação para a direita */
-  padding: 0; /* Remove o preenchimento padrão */
-  align-items: center; /* Alinha os itens verticalmente ao centro */
-  height: 65px; /* Altura da navegação */
+  display: flex;
+  align-items: center;
+  height: 7vh;
 }
 
 .navigation a {
-  text-decoration: none; /* Remove sublinhado dos links */
-  color: inherit; /* Mantém a cor do texto pai */
-  padding: 12px 16px; /* Preenchimento interno dos links */
-  position: relative; /* Posicionamento relativo para pseudo-elementos */
+  text-decoration: none;
+  color: inherit;
+  padding: 12px 16px;
+  position: relative;
+  border-radius: 4px; /* Add rounded corners for better accessibility */
+}
+
+.navigation a:focus,
+.navigation a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Highlight on focus/hover */
 }
 
 .navigation a::after {

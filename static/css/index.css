@@ -36,7 +36,6 @@ body {
   justify-content: space-between;
   padding: 16px 24px;
   position: fixed;
-  top: 0;
   width: 100%;
   z-index: 10;
 }
@@ -53,8 +52,8 @@ body {
 }
 
 .logo-img {
-  width: 200px; /* Largura do logo */
-  height: 140px; /* Altura do logo */
+  width: 17vh; /* Largura do logo */
+  height: 11vh; /* Altura do logo */
   object-fit: cover; /* Cobre a área mantendo a proporção */
   transition: transform 0.4s; /* Transição suave para transformações */
 }
@@ -66,10 +65,8 @@ body {
 /* Estilo da navegação */
 .navigation {
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
   align-items: center;
+  height: 7vh;
 }
 
 .navigation a {
@@ -105,7 +102,7 @@ body {
 /* Conteúdo principal */
 .main-content {
   padding: 80px 24px; /* Preenchimento interno */
-  min-height: calc(100vh - 64px); /* Altura mínima considerando cabeçalho e rodapé */
+  min-height: calc(80vh - 64px); /* Altura mínima considerando cabeçalho e rodapé */
   text-align: center; /* Alinha texto ao centro */
   display: flex; /* Usando flexbox para layout */
   justify-content: center; /* Centraliza horizontalmente */
@@ -149,23 +146,20 @@ body {
 }
 
 .hero a {
-  background-color: gold;
-  color: #000;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 4px;
+  color: gold;
   font-size: 16px;
   text-decoration: none;
-  transition: background-color 0.2s;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
 }
 
 .hero a:focus,
 .hero a:hover {
-  background-color: #ffcc00;
-}
-
-.hero a:hover {
-  background-color: none; /* Sem alteração de fundo ao passar o mouse */
+  background-color: rgba(255, 217, 0, 0.863);
+  color: #000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 /* Seção de Serviços */
