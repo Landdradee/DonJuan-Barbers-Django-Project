@@ -1,126 +1,138 @@
-# DonJuan Barbers - Django Project Setup Guide
+# Don Juan Django 🎭
 
-Welcome to the **DonJuan Barbers** project! This is a fully functional barber website with an integrated financial management panel. Below, you'll find a step-by-step guide to set up the project on your local machine. If you find this project helpful, feel free to give credit to the creator (that's me!) 😊.
+![Django](https://img.shields.io/badge/Django-4.2-green.svg)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
----
+A sophisticated barber shop website with an integrated financial management panel, bringing professional hair care services into the digital age.
 
-## Table of Contents
-1. [Prerequisites](#prerequisites)
-2. [Setup Instructions](#setup-instructions)
-3. [Running the Project](#running-the-project)
-4. [Project Structure](#project-structure)
-5. [Credits](#credits)
+## 🚀 Features
 
----
+- Modern, responsive design
+- User authentication and authorization
+- Financial management panel
+- Appointment booking system
+- Mobile-first approach
+- Custom 404 error pages
+- Secure by default
 
-## Prerequisites
+## 🛠️ Technologies
 
-Before you begin, ensure you have the following installed on your system:
+- **Backend:** Django 4.2
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Authentication:** django-allauth
+- **Styling:** Bootstrap 5
+- **Database:** PostgreSQL
+- **Cloud Storage:** AWS S3 (optional)
 
-- **Python 3.8 or higher** (recommended)
-- **Pip** (Python package installer)
-- **Virtualenv** (optional but recommended for creating isolated environments)
-- **Git** (for cloning the repository)
+## 📋 Prerequisites
 
----
+- Python 3.8 or higher
+- pip (Python package manager)
+- Virtual environment (recommended)
+- Git (for cloning the repository)
 
-## Setup Instructions
+## 🔧 Installation
 
-### 1. Clone the Repository
-First, clone the project repository to your local machine:
-
+1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/DonJuan-Barbers.git
+git clone https://github.com/l-anddrade/DonJuan-Barbers.git
 cd DonJuan-Barbers
 ```
 
-### 2. Create a Virtual Environment (Optional but Recommended)
-To avoid conflicts with other Python projects, create a virtual environment:
-
+2. Create and activate virtual environment:
 ```bash
 python -m venv DonJuanVENV
+# On Windows:
+DonJuanVENV\Scripts\activate
+# On macOS/Linux:
+source DonJuanVENV/bin/activate
 ```
 
-Activate the virtual environment:
-
-- **On Windows:**
-  ```bash
-  DonJuanVENV\Scripts\activate
-  ```
-- **On macOS/Linux:**
-  ```bash
-  source DonJuanVENV/bin/activate
-  ```
-
-### 3. Install Dependencies
-Install the required Python packages using `pip`:
-
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Set Up the Database
-This project uses **SQLite** by default. To set up the database, run the following commands:
+4. Set up environment variables:
+```bash
+cp .env.example .env
+# Edit .env with your configuration
+```
 
+5. Run migrations:
 ```bash
 python manage.py migrate
 ```
 
-### 5. Create a Superuser (Admin)
-To access the financial management panel, create a superuser:
-
+6. Create a superuser:
 ```bash
 python manage.py createsuperuser
 ```
 
-Follow the prompts to set up your admin credentials.
-
-### 6. Configure Environment Variables (Optional)
-If the project uses environment variables (e.g., for secret keys or API keys), create a `.env` file in the root directory and add the necessary variables. Refer to `.env.example` (if provided) for guidance.
-
----
-
-## Running the Project
-
-To start the development server, run:
-
+7. Start the development server:
 ```bash
 python manage.py runserver
 ```
 
-Open your browser and navigate to:
-
-- **Website:** `http://127.0.0.1:8000/`
-- **Admin Panel:** `http://127.0.0.1:8000/admin/`
-
----
-
-## Project Structure
-
-Here’s an overview of the project structure:
+## 📁 Project Structure
 
 ```
 DonJuan-Barbers/
 ├── DonJuanDjango/            # Main Django project directory
-├── DonJuanVENV/              # Virtual environment directory
 ├── static/                   # Static files (CSS, JS, images)
 ├── static files/             # Additional static files
 ├── templates/                # HTML templates
 ├── manage.py                 # Django management script
-├── README.md                 # This file
-├── requirements.txt          # List of dependencies
-└── vercel.json               # Vercel configuration file
+├── README.md                 # Documentation
+├── requirements.txt          # Project dependencies
+└── vercel.json              # Vercel configuration file
 ```
 
+## 🌍 Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```
+SECRET_KEY=your_secret_key
+DEBUG=True
+DATABASE_URL=your_database_url
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_STORAGE_BUCKET_NAME=your_bucket_name
+```
+
+## 🔐 Security
+
+- Debug mode is disabled in production
+- Secret key is stored in environment variables
+- CSRF protection enabled
+- XSS protection enabled
+- Secure SSL/HTTPS redirect in production
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Author
+
+- **Lucas de Andrade (L.Anddrade)**
+  - GitHub: [l.anddrade](https://github.com/l.anddrade)
+  - Email: l.anddrade019@gmail.com
+
+## 🙏 Acknowledgments
+
+- Django documentation
+- Bootstrap team
+- All contributors
+
 ---
-
-## Credits
-
-This project was created by **Lucas de Andrade. AKA. L.Anddrade**. If you find this project useful, feel free to give credit by mentioning my name or linking to my GitHub profile. Contributions and feedback are always welcome!
-
-- **GitHub:** [Your GitHub Profile](https://github.com/l.anddrade)
-- **Email:** l.anddrade019@gmail.com
-
----
-
-Enjoy using **DonJuan Barbers**! If you encounter any issues or have suggestions for improvements, please open an issue on the GitHub repository. Happy coding! 🚀
+Made with ❤️ and Django

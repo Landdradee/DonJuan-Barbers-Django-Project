@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from DonJuanDjango.views import home, perfil, servicos, contato, sobre
 from django.views.generic.base import RedirectView
+from django.conf.urls.i18n import i18n_patterns
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('i18n/', include('django.conf.urls.i18n')),
     path('accounts/', include('allauth.urls')),
     path('home/', home, name='home'),
     path('perfil/', perfil, name='perfil'),
@@ -28,3 +31,17 @@ urlpatterns = [
     path('sobre/', sobre, name='sobre'),
     path('', RedirectView.as_view(url='/home/', permanent=True)),
 ]
+
+urlpatterns += i18n_patterns(
+    path('home/', home, name='home'),
+    path('perfil/', perfil, name='perfil'),
+    path('servicos/', servicos, name='servicos'),
+    path('contato/', contato, name='contato'),
+    path('sobre/', sobre, name='sobre'),
+    path('', RedirectView.as_view(url='/home/', permanent=True)),
+    prefix_default_language=False
+)
+
+from django.conf.urls import handler404
+
+handler404 = 'DonJuanDjango.views.custom_404'

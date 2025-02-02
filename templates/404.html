@@ -1,0 +1,49 @@
+{% extends "allauth/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/404.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+    <div class="max-w-lg w-full text-center">
+        <div class="mb-8">
+            <svg class="w-32 h-32 mx-auto animate-spin-slow" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="barber-stripes" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="rotate(45)">
+                        <rect width="10" height="20" fill="#ffffff"/>
+                        <rect x="10" width="10" height="20" fill="#E11D48"/>
+                    </pattern>
+                </defs>
+                <circle cx="50" cy="50" r="45" fill="#4B5563"/>
+                <circle cx="50" cy="50" r="40" fill="url(#barber-stripes)"/>
+                <circle cx="50" cy="10" r="8" fill="#4B5563"/>
+                <circle cx="50" cy="90" r="8" fill="#4B5563"/>
+            </svg>
+        </div>
+        
+        <h1 class="text-6xl font-bold text-red-600 mb-4">404</h1>
+        <h2 class="text-2xl text-white mb-8">Ops! Essa cadeira está vazia...</h2>
+        
+        <p class="text-gray-400 mb-8">
+            Parece que você está procurando um corte que não existe em nosso catálogo.
+            Que tal voltar para nossa página inicial?
+        </p>
+
+        <div class="space-y-4">
+            <p class="text-gray-400">
+                Redirecionando em <span id="countdown" class="text-red-600 font-bold">10</span> segundos...
+            </p>
+            
+            <a href="{% url 'home' %}" class="inline-block px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-300">
+                Voltar para Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_body %}
+<script src="{% static 'js/404.js' %}"></script>
+{% endblock %} 

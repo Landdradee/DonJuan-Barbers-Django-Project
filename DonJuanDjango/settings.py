@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8a(1w+_3l-@)72_3v(*iy#)jo67u#!vk_bd7cnk34-6&e)npe!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "allauth.account.middleware.AccountMiddleware",
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'DonJuanDjango.urls'
@@ -64,7 +66,10 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
-            os.path.join(BASE_DIR, 'static', 'paginas'),  # Correctly specify the static path
+            os.path.join(BASE_DIR, 'templates', 'allauth', 'account'),
+            os.path.join(BASE_DIR, 'templates', 'allauth', 'socialaccount'),
+            os.path.join(BASE_DIR, 'templates', 'allauth', 'socialaccount', 'providers'),
+            os.path.join(BASE_DIR, 'templates', 'allauth', 'socialaccount', 'providers', 'amazon'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -117,13 +122,26 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
+
+USE_L10N = True
+
+LANGUAGES = [
+    ('pt-br', _('Portuguese')),
+    ('en', _('English')),
+    ('es', _('Spanish')),
+    # Add more languages as needed
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 
 # Static files (CSS, JavaScript, Images)
@@ -134,10 +152,10 @@ USE_TZ = True
 STATIC_DIR = os.path.join (BASE_DIR, "static")
 STATIC_ROOT = os.path.join (BASE_DIR,'static files')
 
-STATIC_URL ='/static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-        os.path.join (BASE_DIR, "static"),
-    ]
+    os.path.join(BASE_DIR, 'static'),
+]
 
 
 STORAGES = {
@@ -158,3 +176,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
+
+
+# Add cache control
+WHITENOISE_MAX_AGE = 31536000  # 1 year in seconds
