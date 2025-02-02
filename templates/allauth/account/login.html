@@ -1,39 +1,14 @@
+{% extends "allauth/base.html" %}
 {% load i18n %}
 {% load allauth account %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>DonJuanLogin</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.css'>
-  <link rel="stylesheet" href="{% static 'css/login.css' %}">
-</head>
-<body>
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
-  <section class="fade-in" id="cabecalho">
-    <header class="header" role="banner">
-      <div class="logo-container">
-        <a href="{% url 'home' %}" class="logo-container" aria-label="Homepage">
-          <img src="{% static 'images/donjuan.png' %}" alt="Don Juan Barbearia e Cabelereiro Logo" class="logo-img">
-        </a>
-      </div>
-      <nav class="navigation fade-in" role="navigation">
-        <a href="{% url 'home' %}" title="Home"><span class="nav-label">Home</span></a>
-        <a href="{% url 'servicos' %}" title="Serviços"><span class="nav-label">Serviços</span></a>
-        <a href="{% url 'contato' %}" title="Contato"><span class="nav-label">Contato</span></a>
-        <a href="{% url 'sobre' %}" title="Sobre"><span class="nav-label">Sobre</span></a>
-
-        {% if user.is_authenticated %}
-          <a href="{% url 'perfil' %}" title="Profile"><span class="nav-label">{{ user.username }}</span></a>
-        {% else %}
-          <a href="{% url 'account_login' %}" title="Login"><span class="nav-label">Login</span></a>
-        {% endif %}
-      </nav>
-    </header>
-  </section>
-
+{% block content %}
 <div class="login-container">
   <div class="login-form">
     <div class="login-form-inner">
@@ -44,8 +19,6 @@
       </div>
       <h1>Login</h1>
       <p class="body-text">Faça seu estilo!</p>
-
-      
 
       <div class="sign-in-seperator">
         <span>ou faça login com seu usuário</span>
@@ -83,42 +56,43 @@
   <div class="onboarding">
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide color-1">
+        <div class="swiper-slide">
           <div class="slide-image">
-            <img src="{% static 'images\estilo.png' %}" loading="lazy" alt="" />
+            <img src="{% static 'images/estilo.png' %}" loading="lazy" alt="Transforme seu visual" />
           </div>
           <div class="slide-content">
-            <h2>Transforme seu visual.</h2>
+            <h2>Transforme seu visual</h2>
             <p>Estilo impecável e atendimento de qualidade em cada visita.</p>
           </div>
         </div>
-        <div class="swiper-slide color-1">
+        <div class="swiper-slide">
           <div class="slide-image">
-            <img src="{% static 'images/cabeleireira.png'%}" loading="lazy" alt="" />
+            <img src="{% static 'images/cabeleireira.png' %}" loading="lazy" alt="Experiência única" />
           </div>
           <div class="slide-content">
-            <h2>Experiência única.</h2>
+            <h2>Experiência única</h2>
             <p>Cuidado personalizado para realçar sua melhor versão.</p>
           </div>
         </div>
-
-        <div class="swiper-slide color-1">
+        <div class="swiper-slide">
           <div class="slide-image">
-            <img src="{% static 'images\home.png' %}" loading="lazy" alt="" />
+            <img src="{% static 'images/home.png' %}" loading="lazy" alt="Seu estilo, nossa missão" />
           </div>
           <div class="slide-content">
-            <h2>Seu estilo, nossa missão.</h2>
+            <h2>Seu estilo, nossa missão</h2>
             <p>Produtos de alta qualidade para um acabamento perfeito.</p>
           </div>
         </div>
       </div>
       <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </div>
 </div>
+{% endblock %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.0/js/swiper.min.js"></script>
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="{% static 'js/login/login.js' %}"></script>
-
-</body>
-</html>
+{% endblock %}

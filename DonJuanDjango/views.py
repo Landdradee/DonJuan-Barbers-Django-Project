@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from functools import wraps
 import socket
 import errno
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from users.models import Profile
 
 def handle_broken_pipe(view_func):
     @wraps(view_func)
@@ -19,9 +22,13 @@ def handle_broken_pipe(view_func):
 def home(request):
     return render(request, 'allauth/index.html')
 
-@handle_broken_pipe
+@login_required
 def perfil(request):
-    return render(request, 'perfil/perfil.html')
+    try:
+        profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        profile = Profile.objects.create(user=request.user)
+    return render(request, 'perfil/perfil.html', {'profile': profile})
 
 @handle_broken_pipe
 def servicos(request):
@@ -39,3 +46,21 @@ from django.shortcuts import render
 
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        # Handle profile update logic here
+        user = request.user
+        profile = user.profile
+        
+        # Update profile fields
+        profile.bio = request.POST.get('bio', '')
+        if 'avatar' in request.FILES:
+            profile.avatar = request.FILES['avatar']
+        
+        profile.save()
+        messages.success(request, 'Profile updated successfully!')
+        return redirect('perfil')
+        
+    return render(request, 'perfil/edit_profile.html')
