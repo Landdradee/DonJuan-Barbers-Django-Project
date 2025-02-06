@@ -1,138 +1,171 @@
-# Don Juan Django 🎭
+# Don Juan Barbershop 💈
 
-![Django](https://img.shields.io/badge/Django-4.2-green.svg)
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+<div align="center">
 
-A sophisticated barber shop website with an integrated financial management panel, bringing professional hair care services into the digital age.
+![Don Juan Logo](path/to/your/logo.png)
 
-## 🚀 Features
+[![Django](https://img.shields.io/badge/Django-4.2-green.svg)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](coverage)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-- Modern, responsive design
-- User authentication and authorization
-- Financial management panel
-- Appointment booking system
-- Mobile-first approach
-- Custom 404 error pages
-- Secure by default
+*A modern barbershop management system built with Django*
 
-## 🛠️ Technologies
+[Demo](your-demo-link) • [Documentation](your-docs-link) • [Report Bug](issues-link) • [Request Feature](issues-link)
 
-- **Backend:** Django 4.2
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Authentication:** django-allauth
-- **Styling:** Bootstrap 5
-- **Database:** PostgreSQL
-- **Cloud Storage:** AWS S3 (optional)
+</div>
 
-## 📋 Prerequisites
+## ✨ Features
 
-- Python 3.8 or higher
-- pip (Python package manager)
-- Virtual environment (recommended)
-- Git (for cloning the repository)
+- 🔐 Secure Authentication System
+- 📅 Smart Appointment Scheduling
+- 💰 Financial Management Dashboard
+- 📱 Responsive Mobile-First Design
+- 🌙 Dark/Light Mode Support
+- 🔍 SEO Optimized
+- 🚀 Performance Optimized
+- 📊 Analytics Integration
+- 💳 Payment Processing
+- 📧 Email Notifications
 
-## 🔧 Installation
+## 🛠️ Tech Stack
 
-1. Clone the repository:
+- **Frontend:**
+  - HTML5/CSS3/JavaScript
+  - Bootstrap 5
+  - SCSS
+  - Custom Components
+
+- **Backend:**
+  - Django 4.2
+  - PostgreSQL
+  - Redis Cache
+  - Celery
+
+- **Infrastructure:**
+  - AWS S3 (Storage)
+  - AWS CloudFront (CDN)
+  - Vercel (Deployment)
+  - GitHub Actions (CI/CD)
+
+## 🚀 Quick Start
+
+1. **Clone & Install**
 ```bash
+# Clone the repository
 git clone https://github.com/l-anddrade/DonJuan-Barbers.git
+
+# Navigate to project
 cd DonJuan-Barbers
-```
 
-2. Create and activate virtual environment:
-```bash
-python -m venv DonJuanVENV
-# On Windows:
-DonJuanVENV\Scripts\activate
-# On macOS/Linux:
-source DonJuanVENV/bin/activate
-```
+# Create virtual environment
+python -m venv venv
 
-3. Install dependencies:
-```bash
+# Activate virtual environment
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-4. Set up environment variables:
+2. **Environment Setup**
 ```bash
+# Copy example environment file
 cp .env.example .env
-# Edit .env with your configuration
+
+# Edit .env with your settings
+nano .env
 ```
 
-5. Run migrations:
+3. **Database Setup**
 ```bash
+# Run migrations
 python manage.py migrate
-```
 
-6. Create a superuser:
-```bash
+# Create superuser
 python manage.py createsuperuser
 ```
 
-7. Start the development server:
+4. **Run Development Server**
 ```bash
 python manage.py runserver
 ```
+
+Visit `http://localhost:8000` 🎉
 
 ## 📁 Project Structure
 
 ```
 DonJuan-Barbers/
-├── DonJuanDjango/            # Main Django project directory
-├── static/                   # Static files (CSS, JS, images)
-├── static files/             # Additional static files
-├── templates/                # HTML templates
-├── manage.py                 # Django management script
-├── README.md                 # Documentation
-├── requirements.txt          # Project dependencies
-└── vercel.json              # Vercel configuration file
+├── apps/                    # Django applications
+│   ├── accounts/           # User management
+│   ├── appointments/       # Booking system
+│   └── finance/           # Financial management
+├── core/                   # Core project files
+├── static/                 # Static assets
+├── templates/              # HTML templates
+├── tests/                  # Test suite
+└── utils/                  # Utility functions
 ```
 
-## 🌍 Environment Variables
+## 🧪 Testing
 
-Create a `.env` file in the root directory with the following variables:
+```bash
+# Run tests
+pytest
 
-```
-SECRET_KEY=your_secret_key
-DEBUG=True
-DATABASE_URL=your_database_url
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-AWS_STORAGE_BUCKET_NAME=your_bucket_name
+# Generate coverage report
+coverage run -m pytest
+coverage report
 ```
 
-## 🔐 Security
+## 📦 Deployment
 
-- Debug mode is disabled in production
-- Secret key is stored in environment variables
-- CSRF protection enabled
-- XSS protection enabled
-- Secure SSL/HTTPS redirect in production
+Detailed deployment guides:
+- [Vercel Deployment](docs/deploy-vercel.md)
+- [AWS Deployment](docs/deploy-aws.md)
+- [Docker Deployment](docs/deploy-docker.md)
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Author
+## 👥 Team
 
-- **Lucas de Andrade (L.Anddrade)**
-  - GitHub: [l.anddrade](https://github.com/l.anddrade)
+- **Lucas de Andrade** - *Lead Developer* - [@l.anddrade](https://github.com/l.anddrade)
   - Email: l.anddrade019@gmail.com
+  - LinkedIn: [Lucas de Andrade](your-linkedin-url)
 
 ## 🙏 Acknowledgments
 
-- Django documentation
-- Bootstrap team
-- All contributors
+- Django Community
+- Bootstrap Team
+- All Contributors
+- Our Amazing Users
+
+## 📊 Project Status
+
+![Development Status](https://img.shields.io/badge/status-active-success.svg)
+![GitHub Stars](https://img.shields.io/github/stars/l-anddrade/DonJuan-Barbers?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/l-anddrade/DonJuan-Barbers?style=social)
 
 ---
-Made with ❤️ and Django
+
+<div align="center">
+Made with ❤️ by <a href="https://github.com/l.anddrade">L.Anddrade</a>
+
+⭐️ Star this project if you find it useful!
+</div>

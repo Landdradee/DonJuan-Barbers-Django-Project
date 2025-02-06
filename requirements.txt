@@ -1,12 +1,35 @@
+# Core Dependencies
 Django>=4.2.0,<5.0.0
-django-allauth>=0.54.0
-django-crispy-forms>=2.0
-crispy-bootstrap5>=0.7
-pillow>=10.0.0
+django-allauth>=0.58.2
+django-crispy-forms>=2.1
+crispy-bootstrap5>=2023.10
+
+# Image Processing
+Pillow>=10.1.0
+
+# Environment & Security
 python-dotenv>=1.0.0
+django-environ>=0.11.2
+django-cors-headers>=4.3.1
+
+# Server & Deployment
 gunicorn>=21.2.0
-whitenoise>=6.5.0
+whitenoise>=6.6.0
 dj-database-url>=2.1.0
+
+# Database
 psycopg2-binary>=2.9.9
-django-storages>=1.14
-boto3>=1.28.0
+
+# Storage
+django-storages>=1.14.2
+boto3>=1.33.6
+
+# HTTP Client
+requests>=2.31.0
+
+# Development & Testing
+pytest>=7.4.3
+pytest-django>=4.7.0
+coverage>=7.3.2
+black>=23.11.0
+flake8>=6.1.0
