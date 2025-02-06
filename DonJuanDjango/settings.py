@@ -185,3 +185,13 @@ FILE_UPLOAD_HANDLERS = [
 # Update media settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Email Configuration for Development
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Email Configuration
+EMAIL_HOST = 'smtp.gmail.com'  # Use Gmail's SMTP server
+EMAIL_PORT = 587  # Gmail's TLS port
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your.email@gmail.com'  # Your Gmail address
+EMAIL_HOST_PASSWORD = 'your-app-password'  # Gmail App Password

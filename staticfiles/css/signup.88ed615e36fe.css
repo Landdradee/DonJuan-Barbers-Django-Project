@@ -224,7 +224,7 @@ body {
   color: var(--text-dark);
 }
 
-/* Updated error styles */
+/* Alert styles */
 .alert-error {
   background: rgba(255, 59, 59, 0.08);
   border-left: 4px solid var(--error-color);
@@ -232,35 +232,7 @@ body {
   padding: 1rem 1.2rem;
   border-radius: 4px;
   font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-
-.field-error {
-  color: var(--error-color);
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
-  padding: 0.5rem 0;
-}
-
-.field-error p {
-  margin: 0.2rem 0;
-}
-
-.input-error input {
-  border-color: var(--error-color);
-  background-color: rgba(255, 59, 59, 0.02);
-}
-
-.input-error input:focus {
-  border-color: var(--error-color);
-  box-shadow: 0 0 0 4px rgba(255, 59, 59, 0.1);
-}
-
-.password-requirements {
-  color: #666;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  padding: 0.25rem 0;
+  margin-bottom: 1rem;
 }
 
 /* Required field indicator */

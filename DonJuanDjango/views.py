@@ -64,3 +64,12 @@ def edit_profile(request):
         return redirect('perfil')
         
     return render(request, 'perfil/edit_profile.html')
+
+def appointments_view(request):
+    return render(request, 'appointments.html')
+
+def services_view(request):
+    return render(request, 'services.html')
+
+def gallery_view(request):
+    return render(request, 'gallery.html')

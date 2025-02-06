@@ -1,0 +1,112 @@
+/* Custom styles for profile page */
+.bg-gold-100 {
+    background-color: #FFF7E6;
+}
+
+.bg-gold-400 {
+    background-color: #FFD700;
+}
+
+.bg-gold-500 {
+    background-color: #FFC800;
+}
+
+.bg-gold-600 {
+    background-color: #FFB700;
+}
+
+.text-gold-500 {
+    color: #FFC800;
+}
+
+.text-gold-800 {
+    color: #B78C00;
+}
+
+/* Barber theme colors */
+.bg-barber-100 {
+    background-color: #F5E6D3;
+}
+
+.bg-barber-400 {
+    background-color: #A67C52;
+}
+
+.bg-barber-500 {
+    background-color: #8B593E;
+}
+
+.bg-barber-600 {
+    background-color: #6F472F;
+}
+
+.text-barber-500 {
+    color: #8B593E;
+}
+
+.text-barber-600 {
+    color: #6F472F;
+}
+
+.text-barber-800 {
+    color: #523524;
+}
+
+/* Animations */
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+/* Card hover effects */
+.hover\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgba(139, 89, 62, 0.1), 0 4px 6px -2px rgba(139, 89, 62, 0.05);
+}
+
+/* Profile picture border glow on hover */
+.profile-picture {
+    transition: all 0.3s ease;
+}
+
+.profile-picture:hover {
+    border-color: #8B593E;
+    box-shadow: 0 0 15px rgba(139, 89, 62, 0.3);
+}
+
+/* Stats cards hover effect */
+.stats-card {
+    transition: transform 0.2s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8B593E;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6F472F;
+}
+
+/* Review cards */
+.review-card {
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(139, 89, 62, 0.1), 0 2px 4px -1px rgba(139, 89, 62, 0.06);
+}
+
+/* Add any additional custom styles here */ 

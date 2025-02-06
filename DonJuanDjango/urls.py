@@ -20,6 +20,7 @@ from DonJuanDjango.views import home, perfil, servicos, contato, sobre, edit_pro
 from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +31,9 @@ urlpatterns = [
     path('servicos/', servicos, name='servicos'),
     path('contato/', contato, name='contato'),
     path('sobre/', sobre, name='sobre'),
+    path('appointments/', views.appointments_view, name='appointments'),
+    path('services/', views.services_view, name='services'),
+    path('gallery/', views.gallery_view, name='gallery'),
     path('', RedirectView.as_view(url='/home/', permanent=True)),
 ]
 
