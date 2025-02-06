@@ -1,34 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@700&display=swap');
 
 :root {
   --bodybg: #1a1a1a;
   --primary-color: #ffd700;
-  --grey: #757575;
-  --placeholder: #666666;
-  --white: #ffffff;
-  --text: #333333;
-  --slider-bg: #f5f5f5;
-  --login-cta-hover: #ffed4a;
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --primary-dark: #ccac00;
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --form-background: #ffffff;
+  --input-background: #f8f8f8;
+  --input-border: #e0e0e0;
+  --error-color: #ff3b3b;
+  --font-primary: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--bodybg);
-  font-family: "Raleway", sans-serif;
+  font-family: var(--font-primary);
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
 }
 
-/* Estilo do cabeçalho */
-.header {
-  background-color: rgba(0, 0, 0, 0.9);
-}
 
 /* Estilo do logo */
 .logo-container {
@@ -101,16 +106,17 @@ body {
 
 .login-container {
   display: flex;
-  max-width: 1200px;
-  background: var(--white);
-  margin: 80px auto;
-  width: 90%;
-  min-width: 320px;
+  width: min(90%, 1000px);
+  background: var(--form-background);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  height: calc(100vh - 160px);
-  min-height: 600px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  min-height: min(600px, 80vh);
+  max-height: 90vh; /* Prevent too tall containers */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .login-container .logo svg {
@@ -120,14 +126,11 @@ body {
 }
 
 .login-container .login-form {
-  width: 45%;
-  padding: 40px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  background: var(--white);
-  position: relative;
-  overflow-y: auto;
+  justify-content: center;
+  width: 50%;
+  padding: clamp(1.5rem, 5vw, 3rem);
 }
 
 .login-container .login-form::before {
@@ -143,165 +146,63 @@ body {
 }
 
 .login-container .login-form .login-form-inner {
+  width: 100%;
   max-width: 380px;
-  width: 100%;
-  padding: 20px;
+  margin: 0 auto;
 }
 
-.login-container .login-form .google-login-button .google-icon svg {
-  height: 20px;
-  display: flex;
-  margin-right: 10px;
+.login-container .login-form .login-form-inner h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--text-dark) 30%, var(--primary-color) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 0.8rem;
 }
 
-.login-container .login-form .google-login-button {
-  color: var(--text);
-  border: 1px solid var(--grey);
-  margin: 40px 0 20px;
-}
-
-.login-container .login-form .sign-in-seperator {
-  text-align: center;
-  color: var(--placeholder);
-  position: relative;
-  margin: 30px 0;
-}
-
-.login-container .login-form .sign-in-seperator span {
-  background: white;
-  padding: 0 15px;
+.body-text {
   color: #666;
-  font-size: 13px;
-}
-
-.login-container .login-form .sign-in-seperator:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background: var(--grey);
-  left: 0;
-  top: 50%;
-  z-index: 0;
+  margin-bottom: 2rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 
 .login-container .login-form .login-form-group {
+  margin-bottom: 1.8rem;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .login-container .login-form .login-form-group label {
-  font-size: 14px;
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--text-dark);
   font-weight: 500;
-  color: var(--text);
-  margin-bottom: 10px;
+  font-size: 0.95rem;
 }
 
 .login-container .login-form .login-form-group input {
-  padding: 15px 20px;
-  border: 2px solid #eee;
-  border-radius: 12px;
-  font-size: 15px;
-  transition: all 0.3s ease;
-  background: #f8f8f8;
   width: 100%;
-  box-sizing: border-box;
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  background: var(--input-background);
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  color: var(--text-dark);
 }
 
 .login-container .login-form .login-form-group input:focus {
   border-color: var(--primary-color);
   background: white;
-  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
-}
-
-.login-container
-  .login-form
-  .login-form-group
-  input::-webkit-input-placeholder {
-  color: var(--placeholder);
-  font-weight: 300;
-  font-size: 14px;
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
 }
 
 .login-container .login-form .login-form-group.single-row {
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 5px;
-}
-
-/* custom checkbox */
-.login-container .login-form .custom-check input[type="checkbox"] {
-  height: 23px;
-  width: 23px;
-  margin: 0;
-  padding: 0;
-  opacity: 1;
-  appearance: none;
-  border: 2px solid var(--primary-color);
-  border-radius: 3px;
-  background: var(--white);
-  position: relative;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.login-container .login-form .custom-check input[type="checkbox"]:checked {
-  border: 2px solid var(--primary-color);
-  background: var(--primary-color);
-}
-
-.login-container
-  .login-form
-  .custom-check
-  input[type="checkbox"]:checked:before,
-.login-container
-  .login-form
-  .custom-check
-  input[type="checkbox"]:checked:after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  background: var(--white);
-}
-
-.login-container
-  .login-form
-  .custom-check
-  input[type="checkbox"]:checked:before {
-  width: 8px;
-  top: 11px;
-  left: 2px;
-  transform: rotate(44deg);
-}
-
-.login-container
-  .login-form
-  .custom-check
-  input[type="checkbox"]:checked:after {
-  width: 14px;
-  top: 8px;
-  left: 5px;
-  transform: rotate(-55deg);
-}
-
-.login-container .login-form .custom-check input[type="checkbox"]:focus {
-  outline: none;
-}
-
-.login-container .login-form .custom-check {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-container .login-form .custom-check label {
-  margin: 0;
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
+  justify-content: flex-end;
+  margin: 1.5rem 0 2rem;
+  padding: 0.5rem 0;
 }
 
 .login-container .login-form .link {
@@ -316,20 +217,51 @@ body {
 }
 
 .login-container .login-form .login-cta {
+  width: 100%;
+  padding: 1rem;
   background: var(--primary-color);
-  color: var(--text);
-  font-weight: 600;
-  padding: 15px 30px;
-  border-radius: 8px;
   border: none;
+  border-radius: 8px;
+  color: var(--text-dark);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 1.5rem;
 }
 
 .login-container .login-form .login-cta:hover {
-  background: var(--login-cta-hover);
+  background: var(--primary-dark);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Loading state for button */
+.login-container .login-form .login-cta.loading {
+  background: var(--primary-dark);
+  pointer-events: none;
+}
+
+.login-container .login-form .login-cta.loading .button-text {
+  visibility: hidden;
+}
+
+.login-container .login-form .login-cta.loading .button-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--text-dark);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .login-container .onboarding {
@@ -430,9 +362,28 @@ body {
   opacity: 1;
 }
 
-.login-container .login-form .login-form-inner h1 {
-  margin-bottom: 20px;
-  margin-top: 10px;
+.password-input-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+  color: var(--text-dark);
 }
 
 @media screen and (max-width: 1024px) {
@@ -446,17 +397,32 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    align-items: center; /* Keep centered on mobile */
+    padding: 0; /* Remove any padding */
+  }
+
   .login-container {
-    flex-direction: column;
-  }
-
-  .login-container .login-form,
-  .login-container .onboarding {
     width: 100%;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    position: fixed; /* Full screen on mobile */
+    top: 0;
+    left: 0;
+    transform: none;
+    max-height: none;
+  }
+
+  .login-form {
+    padding: clamp(1.5rem, 5vw, 2rem);
+    height: auto;
+    overflow-y: auto; /* Allow scrolling if content is too tall */
   }
 
   .login-container .onboarding {
-    min-height: 400px;
+    min-height: 200px;
+    order: -1;
   }
 
   .login-container .onboarding .slide-image {
@@ -467,7 +433,7 @@ body {
 
 @media screen and (max-width: 480px) {
   .login-container .login-form {
-    padding: 20px;
+    padding: 2rem;
   }
   .login-container .login-form-group {
     margin-bottom: 16px;
@@ -534,4 +500,223 @@ body {
 
 .login-container .onboarding .slide-image img.loaded {
   opacity: 1;
+}
+
+/* Design Side */
+.design-side {
+  width: 50%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.design-side::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--primary-color) 0%,
+    var(--primary-color) 10%,
+    transparent 10%,
+    transparent 50%
+  );
+  background-size: 20px 20px;
+  opacity: 0.1;
+  animation: shine 20s linear infinite;
+}
+
+.design-side-content {
+  text-align: center;
+  color: var(--text-light);
+  position: relative;
+  z-index: 1;
+}
+
+.design-side-content h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.design-side-content p {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  opacity: 0.9;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
+
+/* Alert Styles */
+.alert {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+}
+
+.alert-error {
+  background: rgba(255, 59, 59, 0.08);
+  border-left: 4px solid var(--error-color);
+  color: var(--error-color);
+  padding: 1rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+/* Links */
+.register-div {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: #666;
+}
+
+.link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Add styles for the forgot password div */
+.forgot-div {
+  margin-top: 0.5rem;
+}
+
+/* Add smooth transition for the container */
+.login-container {
+  transition: transform 0.3s ease-out;
+}
+
+/* Enhanced heading styles */
+.login-form-inner h1 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 0.8rem;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+/* Better input focus and hover states */
+.login-form-group input:hover {
+  border-color: #ccc;
+}
+
+.login-form-group input:focus::placeholder {
+  color: #999;
+}
+
+/* Required field indicator */
+.required-star {
+  color: var(--primary-color);
+  margin-left: 4px;
+}
+
+/* Custom checkbox styles */
+.checkbox-group {
+  margin: 1rem 0;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-text {
+  color: #666;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.checkmark {
+  position: absolute;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: var(--input-background);
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  border-color: var(--primary-color);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Focus styles for accessibility */
+.checkbox-container input:focus ~ .checkmark {
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1);
+}
+
+/* Hover effect for the text */
+.checkbox-container:hover .checkbox-text {
+  color: var(--text-dark);
+}
+
+/* Animation for checkbox check */
+.checkbox-container input:checked ~ .checkmark:after {
+  animation: checkmark 0.2s ease-in-out forwards;
+}
+
+@keyframes checkmark {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
 }

@@ -1,0 +1,111 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.header.sticky {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Logo styles */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 17vh;
+  height: 11vh;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation styles */
+.navigation {
+  display: flex;
+  align-items: center;
+  height: 7vh;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: inherit;
+  padding: 12px 16px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.navigation a:focus,
+.navigation a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navigation a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navigation a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 1s ease-in both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 16px;
+  }
+
+  .navigation a {
+    gap: 4px;
+  }
+
+  .logo-img {
+    display: none;
+  }
+} 

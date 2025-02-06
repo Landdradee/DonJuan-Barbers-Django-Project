@@ -1,18 +1,19 @@
 {% load static %}
 {% load allauth account %}
-{% load i18n %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{% trans "Don Juan - Barbershop & Hair Salon" %}{% endblock %}</title>
+  <title>{% block title %}Don Juan - Barbershop & Hair Salon{% endblock %}</title>
   
   <!-- Update favicon to use the Don Juan logo -->
   <link rel="icon" type="image/png" href="{% static 'images/donjuan.png' %}">
   <link rel="apple-touch-icon" href="{% static 'images/donjuan.png' %}">
   <link rel="manifest" href="{% static 'site.webmanifest' %}">
   
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% block extra_css %}{% endblock %}
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,20 +24,20 @@
   <div class="wrapper">
     <header class="header" role="banner">
       <div class="logo-container">
-        <a href="{% url 'home' %}" class="logo-container" aria-label="{% trans 'Homepage' %}">
-          <img src="{% static 'images/donjuan.png' %}" alt="{% trans 'Don Juan Barbershop & Hair Salon Logo' %}" class="logo-img">
+        <a href="{% url 'home' %}" class="logo-container" aria-label="Homepage">
+          <img src="{% static 'images/donjuan.png' %}" alt="Don Juan Barbershop & Hair Salon Logo" class="logo-img">
         </a>
       </div>
-      <nav class="navigation fade-in" role="navigation" aria-label="{% trans 'Main navigation' %}">
-        <a href="{% url 'home' %}" title="{% trans 'Home' %}" aria-label="{% trans 'Go to homepage' %}"><span>{% trans "Home" %}</span></a>
-        <a href="{% url 'servicos' %}" title="{% trans 'Services' %}" aria-label="{% trans 'Go to services page' %}"><span>{% trans "Services" %}</span></a>
-        <a href="{% url 'contato' %}" title="{% trans 'Contact' %}" aria-label="{% trans 'Go to contact page' %}"><span>{% trans "Contact" %}</span></a>
-        <a href="{% url 'sobre' %}" title="{% trans 'About' %}" aria-label="{% trans 'Go to about page' %}"><span>{% trans "About" %}</span></a>
+      <nav class="navigation fade-in" role="navigation" aria-label="Main navigation">
+        <a href="{% url 'home' %}" title="Home" aria-label="Go to homepage"><span>Home</span></a>
+        <a href="{% url 'servicos' %}" title="Serviços" aria-label="Go to services page"><span>Serviços</span></a>
+        <a href="{% url 'contato' %}" title="Contato" aria-label="Go to contact page"><span>Contato</span></a>
+        <a href="{% url 'sobre' %}" title="Sobre" aria-label="Go to about page"><span>Sobre</span></a>
 
         {% if user.is_authenticated %}
-          <a href="{% url 'perfil' %}" title="{% trans 'Profile' %}" aria-label="{% trans 'Go to user profile' %}"><span>{{ user.username }}</span></a>
+          <a href="{% url 'perfil' %}" title="Profile" aria-label="Go to user profile"><span>{{ user.username }}</span></a>
         {% else %}
-          <a href="{% url 'account_login' %}" title="{% trans 'Login' %}" aria-label="{% trans 'Sign in to account' %}"><span>{% trans "Login" %}</span></a>
+          <a href="{% url 'account_login' %}" title="Login" aria-label="Sign in to account"><span>Login</span></a>
         {% endif %}
       </nav>
     </header>
@@ -47,6 +48,5 @@
   </div>
 
   {% block extra_js %}{% endblock %}
-  <script src="{% static 'js/language-detector.js' %}" defer></script>
 </body>
 </html> 

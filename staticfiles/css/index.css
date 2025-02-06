@@ -13,13 +13,13 @@ body {
 }
 
 .wrapper {
-  position: relative; /* Garante que os elementos filhos sejam posicionados em relação a este */
-  width: 100vw; /* Largura total da viewport */
-  height: 100vh; /* Altura total da viewport */
-  overflow: hidden; /* Oculta o conteúdo que excede as dimensões */
-  z-index: 1; /* Define z-index maior que o vídeo */
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
   min-height: 100vh;
-  background-color: #000; /* Fallback color while video loads */
+  background-color: #000;
 }
 
 .background-video {
@@ -248,12 +248,12 @@ body {
 
 /* Conteúdo principal */
 .main-content {
-  padding: 80px 24px; /* Preenchimento interno */
-  min-height: calc(80vh - 64px); /* Altura mínima considerando cabeçalho e rodapé */
-  text-align: center; /* Alinha texto ao centro */
-  display: flex; /* Usando flexbox para layout */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  padding: 80px 24px;
+  min-height: calc(80vh - 64px);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   -webkit-animation: fadeIn 1s ease-in both;
   -moz-animation: fadeIn 1s ease-in both;
   -o-animation: fadeIn 1s ease-in both;
@@ -407,8 +407,8 @@ body {
 
 /* Update the typing animation styles */
 .typing-demo {
-  width: fit-content; /* Adjust width based on content */
-  border-right: 3px solid; /* Cursor */
+  width: fit-content;
+  border-right: 3px solid;
   animation: blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;

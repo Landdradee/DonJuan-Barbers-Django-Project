@@ -1,80 +1,76 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            dynamicBullets: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-        keyboard: {
-            enabled: true,
-        },
-        grabCursor: true,
-        on: {
-            init: function () {
-                handleImageLoading();
-            },
-            slideChange: function () {
-                handleImageLoading();
+    // Form handling
+    const loginForm = document.querySelector('.login-form-element');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            const button = this.querySelector('.login-cta');
+            const buttonText = button.querySelector('.button-text');
+            
+            // Add loading state
+            button.classList.add('loading');
+            if (buttonText) {
+                buttonText.textContent = 'Entrando...';
             }
-        }
-    });
 
-    // Handle image loading
-    function handleImageLoading() {
-        const slides = document.querySelectorAll('.swiper-slide');
-        slides.forEach(slide => {
-            const img = slide.querySelector('img');
-            if (img) {
-                if (img.complete) {
-                    img.classList.add('loaded');
-                } else {
-                    img.onload = function() {
-                        img.classList.add('loaded');
-                    };
-                }
+            // The form will be handled by Django
+            // The loading state will be cleared on page reload
+        });
+    }
+
+    // Password visibility toggle
+    const togglePassword = document.querySelector('.toggle-password');
+    if (togglePassword) {
+        togglePassword.addEventListener('click', function() {
+            const passwordInput = document.querySelector('#pwd');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
             }
         });
     }
 
-    // Form interactions
+    // Form field animations
     document.querySelectorAll('.login-form-group input').forEach(input => {
         input.addEventListener('focus', function() {
-            this.parentElement.classList.add('focused');
+            this.closest('.login-form-group').classList.add('focused');
         });
         
         input.addEventListener('blur', function() {
             if (!this.value) {
-                this.parentElement.classList.remove('focused');
+                this.closest('.login-form-group').classList.remove('focused');
             }
         });
+
+        // Set initial state for fields with values
+        if (input.value) {
+            input.closest('.login-form-group').classList.add('focused');
+        }
     });
 
-    // Button hover effect
-    const loginButton = document.querySelector('.login-cta');
-    if (loginButton) {
-        loginButton.addEventListener('mouseenter', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            this.style.setProperty('--x', `${x}px`);
-            this.style.setProperty('--y', `${y}px`);
+    // Add ripple effect to button
+    const buttons = document.querySelectorAll('.login-cta');
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const x = e.clientX - e.target.offsetLeft;
+            const y = e.clientY - e.target.offsetTop;
+
+            const ripple = document.createElement('span');
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            ripple.classList.add('ripple');
+
+            this.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
         });
-    }
+    });
 });
 
 // Add smooth scroll behavior

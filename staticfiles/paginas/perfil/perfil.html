@@ -1,19 +1,18 @@
+{% extends 'allauth/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>responsive profile page</title>
-  <link rel="stylesheet" href="{% static 'css/profile.css' %}">
-</head>
-<body>
-<!-- partial:index.partial.html -->
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+
+{% block extra_js %}
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock %}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+{% block content %}
 <div class='banner'>
   <img class='image-banner' src='https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F6%2F6b%2FTaka_Shiba.jpg%2F1200px-Taka_Shiba.jpg&f=1'></img>
 </div>
@@ -151,7 +150,4 @@
     </div>
   </div>
 </div>
-
-<script  src="{% static 'js/profile.js' %}"></script>
-</body>
-</html>
+{% endblock %}
