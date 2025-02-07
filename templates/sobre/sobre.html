@@ -3,115 +3,238 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="{% static 'css/sobre.css'%}">
 {% endblock %}
 
 {% block content %}
 <div class="about-wrapper">
-  <video></video>
-
-  <section class="about-section">
-    <div class="container">
-      <!-- Modern About Us Header -->
-      <div class="row mb-5">
-        <div class="col-12 text-center">
-          <div class="about-header">
-            <span class="subtitle">Sobre Nós</span>
-            <h1 class="main-title">Tradição & Inovação em Barbearia</h1>
-            <div class="title-separator">
-              <span class="separator-line"></span>
-              <span class="separator-icon">✂️</span>
-              <span class="separator-line"></span>
-            </div>
-          </div>
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section">
+        <video class="hero-video" autoplay muted loop>
+            <source src="https://player.vimeo.com/external/496394186.sd.mp4?s=6e1f9d42c2e13d7405e57d5ac7ee5b4f78e7df94&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="fade-in no-select">Barbearia Moderna</h1>
+            <p class="fade-in no-select">Tradição & Inovação desde 2010</p>
+            <a href="#about" class="cta-button fade-in">Conheça Nossa História</a>
         </div>
-      </div>
+        <div class="hero-overlay"></div>
+    </section>
 
-      <div class="row clearfix">
-        <!-- Coluna de Conteúdo -->
-        <div class="content-column col-md-6 col-sm-12">
-          <div class="inner-column">
-            <div class="about-blocks">
-              <div class="about-block fade-in">
-                <div class="block-icon">🎯</div>
-                <div class="block-content">
-                  <h3>Nossa Missão</h3>
-                  <p>Proporcionar uma experiência única de cuidado masculino, combinando técnicas tradicionais com inovação.</p>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <!-- Modern About Us Header -->
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <div class="about-header fade-in">
+                        <span class="subtitle">Nossa História</span>
+                        <h2 class="main-title">Tradição & Excelência</h2>
+                        <div class="title-separator">
+                            <span class="separator-line"></span>
+                            <span class="separator-icon"><i class="fas fa-cut"></i></span>
+                            <span class="separator-line"></span>
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </div>
 
-              <div class="about-block fade-in">
-                <div class="block-icon">💫</div>
-                <div class="block-content">
-                  <h3>Nossa Visão</h3>
-                  <p>Ser referência em barbearia moderna, estabelecendo novos padrões de qualidade e atendimento.</p>
+            <!-- Stats Counter - Redesigned -->
+            <div class="row stats-counter mb-5">
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter-box modern fade-in">
+                        <div class="counter-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="counter-content">
+                            <span class="counter-number" data-target="5000">0</span>
+                            <span class="counter-plus">+</span>
+                            <p>Clientes Satisfeitos</p>
+                        </div>
+                        <svg class="counter-svg">
+                            <circle cx="60" cy="60" r="55"></circle>
+                        </svg>
+                    </div>
                 </div>
-              </div>
-
-              <div class="about-block fade-in">
-                <div class="block-icon">💪</div>
-                <div class="block-content">
-                  <h3>Nossos Valores</h3>
-                  <p>Excelência, respeito, inovação e compromisso com a satisfação dos nossos clientes.</p>
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter-box modern fade-in">
+                        <div class="counter-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <div class="counter-content">
+                            <span class="counter-number" data-target="15">0</span>
+                            <span class="counter-plus">+</span>
+                            <p>Barbeiros Especialistas</p>
+                        </div>
+                        <svg class="counter-svg">
+                            <circle cx="60" cy="60" r="55"></circle>
+                        </svg>
+                    </div>
                 </div>
-              </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter-box modern fade-in">
+                        <div class="counter-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="counter-content">
+                            <span class="counter-number" data-target="13">0</span>
+                            <span class="counter-plus">+</span>
+                            <p>Anos de Experiência</p>
+                        </div>
+                        <svg class="counter-svg">
+                            <circle cx="60" cy="60" r="55"></circle>
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="counter-box modern fade-in">
+                        <div class="counter-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="counter-content">
+                            <span class="counter-number" data-target="50">0</span>
+                            <span class="counter-plus">+</span>
+                            <p>Prêmios Conquistados</p>
+                        </div>
+                        <svg class="counter-svg">
+                            <circle cx="60" cy="60" r="55"></circle>
+                        </svg>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        
-        <!-- Coluna de Imagem -->
-        <div class="image-column col-md-6 col-sm-12">
-          <div class="image-grid">
-            <div class="grid-item main-image">
-              <img src="https://i.pinimg.com/564x/0b/f8/8b/0bf88b81ed1608f90a4f5410ab14b185.jpg" alt="Barbearia">
-            </div>
-            <div class="grid-item small-image">
-              <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" alt="Detalhe Barbearia 1">
-            </div>
-            <div class="grid-item small-image">
-              <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a" alt="Detalhe Barbearia 2">
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Company Age Counter -->
-      <div class="row mt-5">
-        <div class="col-12 text-center">
-          <h3 class="counter-title">Tempo de Experiência</h3>
-          <div id="company-age" class="company-counter"></div>
+            <!-- Services Showcase -->
+            <div class="row services-showcase mb-5">
+                <div class="col-12 text-center mb-4">
+                    <h3 class="section-title fade-in">Nossos Serviços</h3>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1622288432450-277d0fef5ed6" alt="Corte Masculino">
+                        </div>
+                        <div class="service-content">
+                            <h4>Corte Masculino</h4>
+                            <p>Cortes modernos e clássicos para todos os estilos</p>
+                            <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a" alt="Barba Completa">
+                        </div>
+                        <div class="service-content">
+                            <h4>Barba Completa</h4>
+                            <p>Cuidado completo para o cabelo e barba</p>
+                            <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card fade-in">
+                        <div class="service-image">
+                            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a" alt="Tratamento Capilar">
+                        </div>
+                        <div class="service-content">
+                            <h4>Tratamento Capilar</h4>
+                            <p>Tratamentos especializados para o cabelo</p>
+                            <a href="#" class="service-link">Saiba mais <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Section -->
+            <div class="row gallery-section mb-5">
+                <div class="col-12 text-center mb-4">
+                    <h3 class="section-title fade-in">Nossa Galeria</h3>
+                </div>
+                <div class="col-12">
+                    <div class="gallery-grid">
+                        <div class="gallery-item large fade-in">
+                            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" alt="Barbearia">
+                            <div class="gallery-overlay">
+                                <span><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in">
+                            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a" alt="Barbeiro">
+                            <div class="gallery-overlay">
+                                <span><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>
+                        <div class="gallery-item fade-in">
+                            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a" alt="Cliente">
+                            <div class="gallery-overlay">
+                                <span><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Section -->
+            <div class="row video-section mb-5">
+                <div class="col-md-6">
+                    <div class="video-wrapper fade-in">
+                        <video class="feature-video" autoplay muted loop>
+                            <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=84c9239d332d81f97f4b5da4f0407b67458838e0&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="video-content fade-in">
+                        <h3>A Arte da Barbearia</h3>
+                        <p>Descubra como transformamos cada visita em uma experiência única...</p>
+                        <a href="#" class="cta-button">Agende Agora</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="row team-section mt-5">
+                <div class="col-12 text-center mb-4">
+                    <h3 class="section-title fade-in">Nossa Equipe</h3>
+                </div>
+                <!-- Team members will be dynamically added here -->
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="row testimonials-section mt-5">
+                <div class="col-12">
+                    <h3 class="section-title text-center fade-in">O Que Dizem Nossos Clientes</h3>
+                    <div id="testimonials-carousel" class="testimonials-carousel">
+                        <!-- Testimonials will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add this section before the closing </div> of the about-section -->
+            <div class="row live-feedback-section mb-5">
+                <div class="col-12">
+                    <div class="live-feedback-header">
+                        <h3 class="section-title text-center fade-in">
+                            <i class="fas fa-comments"></i> Feedback em Tempo Real
+                            <span class="live-pulse"></span>
+                        </h3>
+                    </div>
+                    <div id="live-testimonials" class="live-testimonials-container">
+                        <!-- Live testimonials will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <!-- Live Testimonials Section -->
-      <div class="row mt-5">
-        <div class="col-12">
-          <h3 class="testimonials-title">Feedback dos Clientes em Tempo Real</h3>
-          <div id="testimonials-list" class="testimonials-container"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </div>
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/translations.js' %}"></script>
 <script src="{% static 'js/sobre.js' %}"></script>
 <script src="{% static 'js/testimonials.js' %}"></script>
-<script>
-    // Initialize counters and testimonials
-    document.addEventListener('DOMContentLoaded', () => {
-        updateCompanyAge();
-        setInterval(updateCompanyAge, 1000 * 60); // Update every minute
-        
-        // Add initial testimonials
-        for (let i = 0; i < 5; i++) {
-            addNewTestimonial();
-        }
-        
-        // Add new testimonial every 30 seconds
-        setInterval(addNewTestimonial, 30000);
-    });
-</script>
 {% endblock %} 
