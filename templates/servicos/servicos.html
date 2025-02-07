@@ -1,43 +1,12 @@
+{% extends "allauth/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br" data-default-lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Don Juan - Serviços</title>
-    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'css/servicos.css' %}">
-</head>
-<body>
-    <!-- Add right after <body> -->
-    <div class="loading"></div>
 
-    <!-- Header Section -->
-    <header class="header" role="banner">
-        <div class="logo-container">
-            <a href="{% url 'home' %}" aria-label="Homepage">
-                <img src="{% static 'images/donjuan.png' %}" alt="Don Juan Barbearia Logo" class="logo-img">
-            </a>
-            <button class="mobile-menu-btn" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-        <nav class="navigation" role="navigation">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'servicos' %}">Serviços</a>
-            <a href="{% url 'contato' %}">Contato</a>
-            <a href="{% url 'sobre' %}">Sobre</a>
-            {% if user.is_authenticated %}
-                <a href="{% url 'perfil' %}">{{ user.username }}</a>
-            {% else %}
-                <a href="{% url 'account_login' %}">Login</a>
-            {% endif %}
-        </nav>
-    </header>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/servicos.css' %}">
+{% endblock %}
 
+{% block content %}
+<div class="services-wrapper">
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -96,7 +65,7 @@
         </div>
     </section>
 
-    <!-- Add this section before the booking section -->
+    <!-- Partner Section -->
     <section class="partner-section">
         <h2 class="section-title">Seja Nosso Parceiro</h2>
         <div class="partner-grid">
@@ -125,7 +94,9 @@
             <!-- Add booking widget/form here -->
         </div>
     </section>
+</div>
+{% endblock %}
 
-    <script src="{% static 'js/servicos.js' %}"></script>
-</body>
-</html> 
+{% block extra_js %}
+<script src="{% static 'js/servicos.js' %}"></script>
+{% endblock %} 

@@ -377,4 +377,53 @@ body {
   transform-origin: left;
 }
 
-/* Add this script to base.html */ 
+/* Add this script to base.html */
+
+/* Fix for scrolling issues */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1;
+    padding-top: 80px; /* Adjust based on your header height */
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* ... rest of your header styles ... */
+}
+
+/* Service page specific fixes */
+.services-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    main {
+        padding-top: 60px; /* Adjust for mobile header height */
+    }
+} 
