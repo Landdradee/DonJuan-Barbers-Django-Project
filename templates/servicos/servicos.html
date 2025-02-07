@@ -5,62 +5,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Don Juan - Serviços</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/servicos.css' %}">
 </head>
 <body>
-    
-    <section class="fade-in" id="cabecalho">
-      <header class="header" role="banner">
+    <!-- Add right after <body> -->
+    <div class="loading"></div>
+
+    <!-- Header Section -->
+    <header class="header" role="banner">
         <div class="logo-container">
-          <a href="{% url 'home' %}" class="logo-container" aria-label="Homepage">
-            <img src="{% static 'images/donjuan.png' %}" alt="Don Juan Barbearia e Cabelereiro Logo" class="logo-img">
-          </a>
+            <a href="{% url 'home' %}" aria-label="Homepage">
+                <img src="{% static 'images/donjuan.png' %}" alt="Don Juan Barbearia Logo" class="logo-img">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <nav class="navigation fade-in" role="navigation">
-          <a href="{% url 'home' %}" title="Home"><span>Home</span></a>
-          <a href="{% url 'servicos' %}" title="Serviços"><span>Serviços</span></a>
-          <a href="{% url 'contato' %}" title="Contato"><span>Contato</span></a>
-          <a href="{% url 'sobre' %}" title="Sobre"><span>Sobre</span></a>
-  
-          {% if user.is_authenticated %}
-            <a href="{% url 'perfil' %}" title="Profile"><span>{{ user.username }}</span></a>
-          {% else %}
-            <a href="{% url 'account_login' %}" title="Login"><span>Login</span></a>
-          {% endif %}
+        <nav class="navigation" role="navigation">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'servicos' %}">Serviços</a>
+            <a href="{% url 'contato' %}">Contato</a>
+            <a href="{% url 'sobre' %}">Sobre</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'perfil' %}">{{ user.username }}</a>
+            {% else %}
+                <a href="{% url 'account_login' %}">Login</a>
+            {% endif %}
         </nav>
-      </header>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Style, Our Craft</h1>
+            <p>Premium cuts for the modern gentleman</p>
+            <div class="hero-buttons">
+                <button class="btn primary">Agendar Agora</button>
+                <button class="btn secondary">Explorar Produtos</button>
+            </div>
+        </div>
     </section>
 
-    <main class="page-content">
-      <div class="card">
-        <div class="content">
-          <h2 class="title" data-translate="home-service">Se estilize em casa</h2>
-          <p class="copy" data-translate="home-service-desc">Oferecemos serviço em casa, com o barbeiro indo até você para um corte, no conforto do seu lar.</p>
-          <button class="btn" data-translate="schedule-now">Agende já!</button>
+    <!-- Services Section -->
+    <section class="services">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80" alt="Corte de Cabelo">
+                <div class="service-content">
+                    <h3>Corte de Cabelo</h3>
+                    <p>Corte profissional personalizado ao seu estilo</p>
+                    <span class="price">R$ 45,00</span>
+                    <button class="btn">Agendar</button>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80" alt="Barba">
+                <div class="service-content">
+                    <h3>Barba</h3>
+                    <p>Modelagem e acabamento profissional</p>
+                    <span class="price">R$ 35,00</span>
+                    <button class="btn">Agendar</button>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80" alt="Combo">
+                <div class="service-content">
+                    <h3>Combo Completo</h3>
+                    <p>Corte + Barba com desconto especial</p>
+                    <span class="price">R$ 70,00</span>
+                    <button class="btn">Agendar</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <h2 class="title" data-translate="store-service">Atendimento no Estabelecimento</h2>
-          <p class="copy" data-translate="store-service-desc">Visite um dos nossos estabelecimentos e tenha uma experiência com cortes, num ambiente criado para o seu e bem-estar.</p>
-          <button class="btn" data-translate="schedule-now">Agende já!</button>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <h2 class="section-title">Marcas Parceiras</h2>
+        <div class="brands-carousel">
+            <!-- Add brand logos/images here -->
         </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <h2 class="title" data-translate="partnership">Parcerias</h2>
-          <p class="copy" data-translate="partnership-desc">Permita-nos aumentar seu lucro, fortalecendo seu público, e dando um gás no seu negócio!</p>
-          <button class="btn" data-translate="register">Cadastre-se</button>
+        <div class="brand-cta">
+            <h3>Quer vender sua marca conosco?</h3>
+            <button class="btn">Seja um Parceiro</button>
         </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <h2 class="title" data-translate="become-one">Se torne um</h2>
-          <p class="copy" data-translate="become-one-desc">Empresas parceiras podem estar procurando por novos talentos, veja se você se encaixa!</p>
-          <button class="btn" data-translate="register">Cadastre-se</button>
+    </section>
+
+    <!-- Add this section before the booking section -->
+    <section class="partner-section">
+        <h2 class="section-title">Seja Nosso Parceiro</h2>
+        <div class="partner-grid">
+            <div class="partner-card">
+                <h3>Venda Seus Produtos</h3>
+                <p>Alcance milhares de clientes e expanda seu negócio através da nossa plataforma.</p>
+                <button class="btn secondary">Saiba Mais</button>
+            </div>
+            <div class="partner-card">
+                <h3>Seja um Barbeiro</h3>
+                <p>Junte-se à nossa equipe de profissionais e construa sua carreira conosco.</p>
+                <button class="btn secondary">Candidate-se</button>
+            </div>
+            <div class="partner-card">
+                <h3>Parceria Comercial</h3>
+                <p>Desenvolva sua marca através de parcerias estratégicas e marketing conjunto.</p>
+                <button class="btn secondary">Fazer Parceria</button>
+            </div>
         </div>
-      </div>
-    </main>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking">
+        <h2 class="section-title">Agende seu Horário</h2>
+        <div class="booking-container">
+            <!-- Add booking widget/form here -->
+        </div>
+    </section>
+
     <script src="{% static 'js/servicos.js' %}"></script>
 </body>
 </html> 

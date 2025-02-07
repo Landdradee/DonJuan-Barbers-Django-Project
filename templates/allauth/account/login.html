@@ -23,7 +23,7 @@
       {% endif %}
 
       <!-- Login Form -->
-      <form method="POST" action="{% url 'account_login' %}" class="login-form-element">
+      <form method="POST" action="{% url 'account_login' %}" class="login-form-element" novalidate>
         {% csrf_token %}
         <div class="login-form-group">
           <label for="user">Email ou Usuário <span class="required-star">*</span></label>
@@ -77,6 +77,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://kit.fontawesome.com/your-code.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script src="{% static 'js/login/login.js' %}"></script>
 {% endblock %}

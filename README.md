@@ -37,18 +37,22 @@
   - Bootstrap 5
   - SCSS
   - Custom Components
+  - Alpine.js (for interactivity)
 
 - **Backend:**
   - Django 4.2
+  - Django REST Framework
   - PostgreSQL
   - Redis Cache
   - Celery
+  - Django Debug Toolbar
 
 - **Infrastructure:**
   - AWS S3 (Storage)
   - AWS CloudFront (CDN)
   - Vercel (Deployment)
   - GitHub Actions (CI/CD)
+  - Redis (Caching/Queue)
 
 ## 🚀 Quick Start
 
@@ -69,6 +73,9 @@ venv\Scripts\activate     # Windows
 
 # Install dependencies
 pip install -r requirements.txt
+
+# Install pre-commit hooks
+pre-commit install
 ```
 
 2. **Environment Setup**
@@ -103,12 +110,22 @@ DonJuan-Barbers/
 ├── apps/                    # Django applications
 │   ├── accounts/           # User management
 │   ├── appointments/       # Booking system
-│   └── finance/           # Financial management
-├── core/                   # Core project files
+│   ├── finance/           # Financial management
+│   ├── api/               # REST API endpoints
+│   └── core/              # Core functionality
+├── config/                 # Project configuration
 ├── static/                 # Static assets
+│   ├── css/               # Compiled CSS
+│   ├── scss/              # SCSS source files
+│   ├── js/                # JavaScript files
+│   └── images/            # Image assets
 ├── templates/              # HTML templates
 ├── tests/                  # Test suite
-└── utils/                  # Utility functions
+│   ├── factories/         # Test data factories
+│   ├── integration/       # Integration tests
+│   └── unit/              # Unit tests
+├── utils/                  # Utility functions
+└── docs/                   # Documentation
 ```
 
 ## 🧪 Testing

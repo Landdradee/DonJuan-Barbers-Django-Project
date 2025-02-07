@@ -3,19 +3,82 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.querySelector('.login-form-element');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
-            const button = this.querySelector('.login-cta');
-            const buttonText = button.querySelector('.button-text');
+            e.preventDefault(); // Prevent default form submission
             
-            // Add loading state
-            button.classList.add('loading');
-            if (buttonText) {
-                buttonText.textContent = 'Entrando...';
+            // Clear any existing error messages
+            clearErrors();
+            
+            // Validate form
+            if (validateForm(this)) {
+                const button = this.querySelector('.login-cta');
+                const buttonText = button.querySelector('.button-text');
+                
+                // Add loading state
+                button.classList.add('loading');
+                if (buttonText) {
+                    buttonText.textContent = 'Entrando...';
+                }
+                
+                // Submit the form programmatically
+                this.submit();
             }
-
-            // The form will be handled by Django
-            // The loading state will be cleared on page reload
         });
     }
+
+    // Form validation function
+    function validateForm(form) {
+        let isValid = true;
+        const email = form.querySelector('#user');
+        const password = form.querySelector('#pwd');
+        
+        // Validate email/username
+        if (!email.value.trim()) {
+            showError(email, 'Por favor, insira seu email ou usuário');
+            isValid = false;
+        }
+        
+        // Validate password
+        if (!password.value) {
+            showError(password, 'Por favor, insira sua senha');
+            isValid = false;
+        }
+        
+        return isValid;
+    }
+
+    // Show error message
+    function showError(input, message) {
+        const formGroup = input.closest('.login-form-group');
+        const error = document.createElement('div');
+        error.className = 'field-error';
+        error.innerHTML = `<p>${message}</p>`;
+        
+        // Add error class to input
+        input.classList.add('input-error');
+        
+        // Add error message if it doesn't exist
+        if (!formGroup.querySelector('.field-error')) {
+            formGroup.appendChild(error);
+        }
+    }
+
+    // Clear all errors
+    function clearErrors() {
+        document.querySelectorAll('.field-error').forEach(error => error.remove());
+        document.querySelectorAll('.input-error').forEach(input => input.classList.remove('input-error'));
+    }
+
+    // Clear error when user starts typing
+    document.querySelectorAll('.login-form-group input').forEach(input => {
+        input.addEventListener('input', function() {
+            const formGroup = this.closest('.login-form-group');
+            const error = formGroup.querySelector('.field-error');
+            if (error) {
+                error.remove();
+            }
+            this.classList.remove('input-error');
+        });
+    });
 
     // Password visibility toggle
     const togglePassword = document.querySelector('.toggle-password');
@@ -103,13 +166,5 @@ document.querySelector('.login-cta').addEventListener('mouseenter', function(e) 
     
     this.style.setProperty('--x', `${x}px`);
     this.style.setProperty('--y', `${y}px`);
-});
-
-// Add loading state to form submission
-document.querySelector('#messageForm').addEventListener('submit', function(e) {
-    const button = this.querySelector('.login-cta');
-    button.classList.add('loading');
-    // Remove loading state after response (simulated here)
-    setTimeout(() => button.classList.remove('loading'), 2000);
 });
   

@@ -269,6 +269,84 @@ body {
   margin-left: 4px;
 }
 
+/* Enhanced Password Strength Indicator */
+.password-strength {
+  margin-top: 0.8rem;
+  padding: 1rem;
+  background: rgba(255, 59, 59, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 59, 59, 0.1);
+}
+
+.password-strength-meter {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.password-strength-meter div {
+  height: 4px;
+  flex: 1;
+  background: #ddd;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.password-requirements-list {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.requirement {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.requirement::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.requirement.met {
+  color: #2ecc71;
+}
+
+.requirement.met::before {
+  border-color: #2ecc71;
+  background: #2ecc71;
+  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.1);
+}
+
+/* Password strength states */
+.strength-weak .strength-bar-1 {
+  background: var(--error-color);
+}
+
+.strength-medium .strength-bar-1,
+.strength-medium .strength-bar-2 {
+  background: #ffd700;
+}
+
+.strength-strong .strength-bar-1,
+.strength-strong .strength-bar-2,
+.strength-strong .strength-bar-3 {
+  background: #2ecc71;
+}
+
+.password-strength-text {
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
 /* Responsive styles */
 @media screen and (max-width: 768px) {
   .signup-container {

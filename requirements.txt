@@ -11,6 +11,7 @@ Pillow>=10.1.0
 python-dotenv>=1.0.0
 django-environ>=0.11.2
 django-cors-headers>=4.3.1
+django-debug-toolbar>=4.2.0
 
 # Server & Deployment
 gunicorn>=21.2.0
@@ -19,6 +20,7 @@ dj-database-url>=2.1.0
 
 # Database
 psycopg2-binary>=2.9.9
+django-redis>=5.4.0
 
 # Storage
 django-storages>=1.14.2
@@ -33,3 +35,13 @@ pytest-django>=4.7.0
 coverage>=7.3.2
 black>=23.11.0
 flake8>=6.1.0
+pre-commit>=3.5.0
+factory-boy>=3.3.0
+
+# Task Queue
+celery>=5.3.6
+redis>=5.0.1
+
+# API
+djangorestframework>=3.14.0
+drf-yasg>=1.21.7

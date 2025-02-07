@@ -24,7 +24,7 @@
       {% endif %}
 
       <!-- Signup Form -->
-      <form method="POST" action="{% url 'account_signup' %}" class="signup-form-element">
+      <form method="POST" action="{% url 'account_signup' %}" class="signup-form-element" novalidate>
         {% csrf_token %}
         
         <div class="signup-form-group">
@@ -76,8 +76,20 @@
               {% endfor %}
             </div>
           {% endif %}
-          <div class="password-requirements">
-            <small>A senha deve conter pelo menos 8 caracteres, incluindo letras e números</small>
+          <div class="password-strength">
+            <small class="password-strength-text">Força da senha</small>
+            <div class="password-strength-meter">
+              <div class="strength-bar-1"></div>
+              <div class="strength-bar-2"></div>
+              <div class="strength-bar-3"></div>
+            </div>
+            <div class="password-requirements-list">
+              <div class="requirement" data-requirement="length">8 ou mais caracteres</div>
+              <div class="requirement" data-requirement="lowercase">Letra minúscula</div>
+              <div class="requirement" data-requirement="uppercase">Letra maiúscula</div>
+              <div class="requirement" data-requirement="number">Número</div>
+              <div class="requirement" data-requirement="special">Caractere especial</div>
+            </div>
           </div>
         </div>
 
@@ -127,6 +139,6 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://kit.fontawesome.com/your-code.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 <script src="{% static 'js/signup/signup.js' %}"></script>
 {% endblock %} 

@@ -558,22 +558,131 @@ body {
   }
 }
 
+/* Enhanced Error Styles */
+.alert-error {
+  background: rgba(255, 59, 59, 0.05);
+  border-left: 4px solid var(--error-color);
+  color: var(--error-color);
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(255, 59, 59, 0.1);
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+}
+
+.field-error {
+  color: var(--error-color);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.field-error::before {
+  content: '!';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: var(--error-color);
+  color: white;
+  border-radius: 50%;
+  margin-right: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.input-error {
+  border-color: var(--error-color) !important;
+  background-color: rgba(255, 59, 59, 0.02);
+}
+
+.input-error:focus {
+  border-color: var(--error-color) !important;
+  box-shadow: 0 0 0 4px rgba(255, 59, 59, 0.1) !important;
+}
+
+/* Error animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Password strength indicator */
+.password-strength {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.password-strength-meter {
+  height: 4px;
+  background: #eee;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.password-strength-meter div {
+  height: 100%;
+  width: 0;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.strength-weak {
+  background: var(--error-color);
+  width: 33.33% !important;
+}
+
+.strength-medium {
+  background: #ffd700;
+  width: 66.66% !important;
+}
+
+.strength-strong {
+  background: #2ecc71;
+  width: 100% !important;
+}
+
+/* Success message style */
+.success-message {
+  background: rgba(46, 204, 113, 0.05);
+  border-left: 4px solid #2ecc71;
+  color: #2ecc71;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(46, 204, 113, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
 /* Alert Styles */
 .alert {
   padding: 1rem;
   border-radius: 8px;
   margin-bottom: 1.5rem;
   font-size: clamp(0.875rem, 1.5vw, 1rem);
-}
-
-.alert-error {
-  background: rgba(255, 59, 59, 0.08);
-  border-left: 4px solid var(--error-color);
-  color: var(--error-color);
-  padding: 1rem 1.2rem;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
 }
 
 /* Links */
