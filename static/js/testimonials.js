@@ -141,4 +141,141 @@ function initializeLiveTestimonials() {
 }
 
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeLiveTestimonials); 
+document.addEventListener('DOMContentLoaded', initializeLiveTestimonials);
+
+// Feedback data with placeholder images
+const feedbacks = [
+    {
+        name: "Ricardo Silva",
+        avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+        rating: 5,
+        message: "Melhor barbearia que já frequentei! O atendimento é impecável e o resultado sempre supera as expectativas.",
+        time: "agora"
+    },
+    {
+        name: "João Pedro",
+        avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+        rating: 4.5,
+        message: "Ambiente super agradável e profissionais muito atenciosos. Recomendo!",
+        time: "há 30 minutos"
+    },
+    {
+        name: "Lucas Mendes",
+        avatar: "https://randomuser.me/api/portraits/men/67.jpg",
+        rating: 5,
+        message: "Serviço de primeira qualidade! O barbeiro entendeu exatamente o que eu queria.",
+        time: "há 1 hora"
+    }
+];
+
+// New feedbacks pool with placeholder images
+const newFeedbacksPool = [
+    {
+        name: "Ana Beatriz",
+        avatar: "https://randomuser.me/api/portraits/women/32.jpg",
+        rating: 5,
+        message: "Profissionais extremamente qualificados! Adorei o resultado.",
+        time: "agora"
+    },
+    {
+        name: "Carlos Eduardo",
+        avatar: "https://randomuser.me/api/portraits/men/22.jpg",
+        rating: 5,
+        message: "Serviço excepcional, ambiente acolhedor e atendimento de primeira.",
+        time: "agora"
+    },
+    {
+        name: "Maria Clara",
+        avatar: "https://randomuser.me/api/portraits/women/45.jpg",
+        rating: 4.5,
+        message: "Sempre saio satisfeita! Equipe muito profissional e atenciosa.",
+        time: "agora"
+    },
+    {
+        name: "Pedro Henrique",
+        avatar: "https://randomuser.me/api/portraits/men/55.jpg",
+        rating: 5,
+        message: "Melhor barbearia da cidade! Atendimento nota 10.",
+        time: "agora"
+    },
+    {
+        name: "Gabriel Santos",
+        avatar: "https://randomuser.me/api/portraits/men/62.jpg",
+        rating: 5,
+        message: "Corte perfeito como sempre! Ambiente muito agradável.",
+        time: "agora"
+    }
+];
+
+// Function to create star rating HTML
+function createStarRating(rating) {
+    let stars = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= rating) {
+            stars += '<i class="fas fa-star"></i>';
+        } else if (i - 0.5 <= rating) {
+            stars += '<i class="fas fa-star-half-alt"></i>';
+        } else {
+            stars += '<i class="far fa-star"></i>';
+        }
+    }
+    return stars;
+}
+
+// Function to create feedback card
+function createFeedbackCard(feedback) {
+    return `
+        <div class="testimonial-card live-feedback fade-in">
+            <div class="testimonial-header">
+                <img src="${feedback.avatar}" alt="Avatar" class="testimonial-avatar" onerror="this.src='https://via.placeholder.com/60x60'">
+                <div class="testimonial-user-info">
+                    <h4>${feedback.name}</h4>
+                    <div class="rating">
+                        ${createStarRating(feedback.rating)}
+                    </div>
+                </div>
+                ${feedback.time === "agora" ? '<span class="live-badge">Agora</span>' : ''}
+            </div>
+            <p class="testimonial-message">${feedback.message}</p>
+            <span class="testimonial-time">${feedback.time}</span>
+        </div>
+    `;
+}
+
+// Function to add new feedback
+function addNewFeedback() {
+    const randomFeedback = newFeedbacksPool[Math.floor(Math.random() * newFeedbacksPool.length)];
+    const container = document.querySelector('.live-testimonials-container');
+    
+    // Update existing feedback times
+    const existingFeedbacks = container.querySelectorAll('.testimonial-card');
+    existingFeedbacks.forEach(card => {
+        const timeSpan = card.querySelector('.testimonial-time');
+        const currentTime = timeSpan.textContent;
+        if (currentTime === "agora") {
+            timeSpan.textContent = "há 5 minutos";
+            card.querySelector('.live-badge')?.remove();
+        }
+    });
+
+    // Add new feedback at the top
+    const newCard = document.createElement('div');
+    newCard.innerHTML = createFeedbackCard(randomFeedback);
+    container.insertBefore(newCard.firstChild, container.firstChild);
+
+    // Remove oldest feedback if there are too many
+    if (existingFeedbacks.length >= 5) {
+        container.removeChild(container.lastChild);
+    }
+}
+
+// Initialize feedbacks
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.live-testimonials-container');
+    feedbacks.forEach(feedback => {
+        container.innerHTML += createFeedbackCard(feedback);
+    });
+
+    // Add new feedback every 30 seconds
+    setInterval(addNewFeedback, 30000);
+}); 

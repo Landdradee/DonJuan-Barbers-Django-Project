@@ -3,17 +3,52 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- Replace the Font Awesome CDN with this complete set -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Add Font Awesome font files explicitly -->
+<style>
+    @font-face {
+        font-family: 'Font Awesome 6 Free';
+        font-style: normal;
+        font-weight: 900;
+        font-display: block;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/webfonts/fa-solid-900.woff2") format("woff2"),
+             url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/webfonts/fa-solid-900.ttf") format("truetype");
+    }
+    
+    @font-face {
+        font-family: 'Font Awesome 6 Free';
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/webfonts/fa-regular-400.woff2") format("woff2"),
+             url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/webfonts/fa-regular-400.ttf") format("truetype");
+    }
+
+    .fas {
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+    }
+
+    .far {
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 400;
+    }
+</style>
 <link rel="stylesheet" href="{% static 'css/sobre.css'%}">
 {% endblock %}
 
 {% block content %}
 <div class="about-wrapper">
+    <!-- Add this right after the opening <div class="about-wrapper"> -->
+    <div class="dynamic-background">
+        <div class="background-image"></div>
+        <div class="background-overlay"></div>
+    </div>
+
     <!-- Hero Section with Video Background -->
     <section class="hero-section">
-        <video class="hero-video" autoplay muted loop>
-            <source src="https://player.vimeo.com/external/496394186.sd.mp4?s=6e1f9d42c2e13d7405e57d5ac7ee5b4f78e7df94&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
-        </video>
+        <div class="hero-image"></div>
         <div class="hero-content">
             <h1 class="fade-in no-select">Barbearia Moderna</h1>
             <p class="fade-in no-select">Tradição & Inovação desde 2010</p>
@@ -179,12 +214,10 @@
             <!-- Video Section -->
             <div class="row video-section mb-5">
                 <div class="col-md-6">
-                    <div class="video-wrapper fade-in">
-                        <video class="feature-video" autoplay muted loop>
-                            <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=84c9239d332d81f97f4b5da4f0407b67458838e0&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
-                        </video>
-                        <div class="video-overlay">
-                            <i class="fas fa-play"></i>
+                    <div class="feature-image-wrapper fade-in">
+                        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1" alt="Barbershop" class="feature-image">
+                        <div class="feature-overlay">
+                            <i class="fas fa-image"></i>
                         </div>
                     </div>
                 </div>
@@ -208,24 +241,14 @@
             <!-- Testimonials Section -->
             <div class="row testimonials-section mt-5">
                 <div class="col-12">
-                    <h3 class="section-title text-center fade-in">O Que Dizem Nossos Clientes</h3>
-                    <div id="testimonials-carousel" class="testimonials-carousel">
-                        <!-- Testimonials will be dynamically added here -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add this section before the closing </div> of the about-section -->
-            <div class="row live-feedback-section mb-5">
-                <div class="col-12">
-                    <div class="live-feedback-header">
+                    <div class="feedback-header">
                         <h3 class="section-title text-center fade-in">
                             <i class="fas fa-comments"></i> Feedback em Tempo Real
                             <span class="live-pulse"></span>
                         </h3>
                     </div>
-                    <div id="live-testimonials" class="live-testimonials-container">
-                        <!-- Live testimonials will be added here dynamically -->
+                    <div class="live-testimonials-container">
+                        <!-- Feedback cards will be dynamically added here -->
                     </div>
                 </div>
             </div>

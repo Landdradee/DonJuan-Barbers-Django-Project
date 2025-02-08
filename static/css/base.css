@@ -149,10 +149,11 @@ body {
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.95);
-  padding-top: 80px;
+  padding-top: 0;
   z-index: 999;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   transform: translateX(-100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
@@ -167,14 +168,17 @@ body {
 .mobile-navigation a {
   color: white;
   text-decoration: none;
-  padding: 15px;
-  font-size: 1.2rem;
+  padding: 20px;
+  font-size: 1.4rem;
   width: 100%;
   text-align: center;
   transform: translateX(-20px);
   opacity: 0;
   transition: all 0.3s ease;
   transition-delay: calc(var(--i) * 0.1s);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mobile-navigation.active a {
@@ -203,10 +207,16 @@ body {
   .mobile-navigation {
     display: flex;
     visibility: visible;
+    gap: 10px;
   }
 
   .logo-img {
     display: none;
+  }
+
+  .mobile-navigation a {
+    max-width: 80%;
+    margin: 5px auto;
   }
 }
 
