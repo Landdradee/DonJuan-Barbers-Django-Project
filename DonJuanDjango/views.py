@@ -4,7 +4,6 @@ import socket
 import errno
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from users.models import Profile
 
 def handle_broken_pipe(view_func):
     @wraps(view_func)
@@ -20,7 +19,7 @@ def handle_broken_pipe(view_func):
 
 @handle_broken_pipe
 def home(request):
-    return render(request, 'allauth/index.html')
+    return render(request, 'home/index.html')
 
 @login_required
 def perfil(request):

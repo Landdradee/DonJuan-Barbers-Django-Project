@@ -1,0 +1,144 @@
+{% extends "Header/Header.html" %}
+{% load i18n %}
+{% load allauth account %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'signup/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="signup-container">
+  <div class="signup-form">
+    <div class="signup-form-inner">
+      <h1>Criar Conta</h1>
+      <p class="body-text">Registre-se para agendar seu horário</p>
+
+      <!-- General Form Errors -->
+      {% if form.non_field_errors %}
+      <div class="alert alert-error">
+        {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- Signup Form -->
+      <form method="POST" action="{% url 'account_signup' %}" class="signup-form-element" novalidate>
+        {% csrf_token %}
+        
+        <div class="signup-form-group">
+          <label for="username">Nome de Usuário <span class="required-star">*</span></label>
+          <input type="text" name="username" id="username" 
+                 placeholder="Escolha um nome de usuário" 
+                 value="{{ form.username.value|default:'' }}"
+                 class="{% if form.username.errors %}input-error{% endif %}"
+                 required>
+          {% if form.username.errors %}
+            <div class="field-error">
+              {% for error in form.username.errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="signup-form-group">
+          <label for="email">Email <span class="required-star">*</span></label>
+          <input type="email" name="email" id="email" 
+                 placeholder="Seu endereço de email" 
+                 value="{{ form.email.value|default:'' }}"
+                 class="{% if form.email.errors %}input-error{% endif %}"
+                 required>
+          {% if form.email.errors %}
+            <div class="field-error">
+              {% for error in form.email.errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="signup-form-group">
+          <label for="password1">Senha <span class="required-star">*</span></label>
+          <div class="password-input-wrapper {% if form.password1.errors %}input-error{% endif %}">
+            <input type="password" name="password1" id="password1" 
+                   placeholder="Crie uma senha"
+                   required>
+            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          {% if form.password1.errors %}
+            <div class="field-error">
+              {% for error in form.password1.errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="password-strength">
+            <small class="password-strength-text">Força da senha</small>
+            <div class="password-strength-meter">
+              <div class="strength-bar-1"></div>
+              <div class="strength-bar-2"></div>
+              <div class="strength-bar-3"></div>
+            </div>
+            <div class="password-requirements-list">
+              <div class="requirement" data-requirement="length">8 ou mais caracteres</div>
+              <div class="requirement" data-requirement="lowercase">Letra minúscula</div>
+              <div class="requirement" data-requirement="uppercase">Letra maiúscula</div>
+              <div class="requirement" data-requirement="number">Número</div>
+              <div class="requirement" data-requirement="special">Caractere especial</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="signup-form-group">
+          <label for="password2">Confirmar Senha <span class="required-star">*</span></label>
+          <div class="password-input-wrapper {% if form.password2.errors %}input-error{% endif %}">
+            <input type="password" name="password2" id="password2" 
+                   placeholder="Confirme sua senha"
+                   required>
+            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          {% if form.password2.errors %}
+            <div class="field-error">
+              {% for error in form.password2.errors %}
+                <p>{{ error }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        
+        <button type="submit" class="rounded-button signup-cta">
+          <span class="button-text">Registrar</span>
+          <div class="button-loader"></div>
+        </button>
+      </form>
+
+      <div class="login-div">
+        Já tem uma conta? <a href="{% url 'account_login' %}" class="link">Entrar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple Design Side -->
+  <div class="design-side">
+    <div class="design-side-content">
+      <h2>Don Juan</h2>
+      <p>Barbershop & Hair Salon</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="{% static 'signup/signup.js' %}"></script>
+{% endblock %} 
